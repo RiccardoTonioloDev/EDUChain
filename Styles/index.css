@@ -1,0 +1,113 @@
+@import url('Lexend-Medium.ttf');
+@import url('RobotoMono-Light.ttf');
+
+*{
+    padding:0;
+    margin:0;
+}
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+    background-color: antiquewhite;
+}
+
+.logo{
+    max-width: 60px;
+    height: auto;
+    padding-top: 4px;
+}
+
+.intestazione{
+    font-family: 'Lexend', sans-serif;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 2em;
+    border-radius: 15px;
+    background-color: rgb(12, 184, 184);
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+}
+
+.login-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(12, 184, 184);
+    border-radius: 25px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+    padding-left: 22px;
+    padding-right: 22px;
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.5em;
+    color:white;
+    margin-bottom: 1vh;
+}
+
+.login-card input{
+    border-style: none;
+    min-height: 6vh;
+    min-width: 40vh;
+    border-radius: 5px;
+    font-size: 1.4em;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family:'Roboto Mono', monospace;
+}
+
+.login-button{
+    font-family: 'Lexend', sans-serif;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 0.9em;
+    border-style: none;
+    border-radius: 10px;
+    background-color: rgb(167, 133, 89);
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.register-button{
+    font-family: 'Lexend', sans-serif;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 1.3em;
+    border-style: none;
+    border-radius: 10px;
+    background-color: rgb(167, 133, 89);
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.button-container{
+    margin-top: 6px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:10vh;
+    background-color: rgb(167, 133, 89);
+    color: white;
+    font-size: 2em;
+    font-family:'Roboto Mono', monospace;
+}
+
+.login-button:focus, .login-button:hover, .register-button:focus, .register-button:hover{
+    background-color: rgb(145, 116, 78);
+}

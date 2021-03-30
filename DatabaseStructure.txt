@@ -1,0 +1,6 @@
+CREATE TABLE UTENTI(
+	IdUtente char(64) PRIMARY KEY NOT NULL,
+    Password char(64) NOT NULL,
+    ChiavePrivata TEXT NOT NULL,
+    ChiavePubblica char(181) NOT NULL
+)ENGINE=INNODB;
