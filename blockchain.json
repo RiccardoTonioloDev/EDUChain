@@ -1,62 +1,24 @@
 [
     {
-        "0": [
-            {
-                "Pubblica Mittente": "prova 1",
-                "Pubblica Destinatario": "prova 2",
-                "Importo": 100,
-                "Timestamp": 1617045987,
-                "Firma Hash": "prova 3"
-            }
+        "Transazioni": [
+            [
+                "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "provaDestinatario",
+                396,
+                1617300562
+            ]
         ],
         "hashPrecedente": 0
     },
     {
-        "0": [
-            {
-                "Pubblica Mittente": "prova 1",
-                "Pubblica Destinatario": "prova 2",
-                "Importo": 100,
-                "Timestamp": 1617046005,
-                "Firma Hash": "prova 3"
-            }
+        "Transazioni": [
+            [
+                "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "provaDestinatario",
+                396,
+                1617300599
+            ]
         ],
-        "hashPrecedente": 0
-    },
-    {
-        "0": [
-            {
-                "Pubblica Mittente": "prova 1",
-                "Pubblica Destinatario": "prova 2",
-                "Importo": 100,
-                "Timestamp": 1617128057,
-                "Firma Hash": "prova 3"
-            }
-        ],
-        "hashPrecedente": 0
-    },
-    {
-        "0": [
-            {
-                "Pubblica Mittente": "prova 1",
-                "Pubblica Destinatario": "prova 2",
-                "Importo": 100,
-                "Timestamp": 1617294349,
-                "Firma Hash": "prova 3"
-            }
-        ],
-        "hashPrecedente": 0
-    },
-    {
-        "0": [
-            {
-                "Pubblica Mittente": "prova 1",
-                "Pubblica Destinatario": "prova 2",
-                "Importo": 100,
-                "Timestamp": 1617294388,
-                "Firma Hash": "prova 3"
-            }
-        ],
-        "hashPrecedente": 0
+        "hashPrecedente": "94e1576c13332df0ea10901ad4ae1a2988160a8f0a0389df1b30b5b9f7f9a58e"
     }
 ]

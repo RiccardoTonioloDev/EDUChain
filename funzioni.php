@@ -124,42 +124,47 @@ function CheckUserExist($conn,$IdUtente){
 }
 
 function addTransaction(){
-    if(verifyFile()){
-        $bloccoGenesi = array(array(array("Pubblica Mittente"=>"prova 1",
-                                    "Pubblica Destinatario"=>"prova 2",
-                                    "Importo"=>100,
-                                    "Timestamp"=>time(),
-                                    "Firma Hash"=>"prova 3")),
-                                "hashPrecedente"=>0);
-        $file = fopen("blockchain.json","c+");
-        while(flock($file,LOCK_EX)===FALSE){
-        }
-        $actualFile = fread($file,filesize("blockchain.json"));
-        $actualFile = json_decode($actualFile,TRUE);
-        array_push($actualFile,$bloccoGenesi);
-        print_r($actualFile);
-        $file = fopen("blockchain.json","w");
-        fwrite($file,json_encode($actualFile));
-        flock($file,LOCK_UN);
-        fclose($file);
-        
-    }else{
-        $bloccoGenesi = array(array(array(array("Pubblica Mittente"=>"prova 1",
-                                    "Pubblica Destinatario"=>"prova 2",
-                                    "Importo"=>100,
-                                    "Timestamp"=>time(),
-                                    "Firma Hash"=>"prova 3")),
-                                "hashPrecedente"=>0));
-        $file = fopen("blockchain.json","c+");
-        while(flock($file,LOCK_EX)===FALSE){
-        }
-        fwrite($file,json_encode($bloccoGenesi));
-        flock($file,LOCK_UN);
-        fclose($file);
+    verifyFile();
+    $lock = fopen("Lock.txt","c+");
+    while(flock($lock,LOCK_EX)===FALSE){
     }
+    createNewBlock();
+    createNewTransaction("provaDestinatario",396);
+    fclose($lock);
+
+}
+
+function createNewTransaction($destinatario,$importo){
+    $timestamp = time();
+    // ,encryptRSA(hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp))))
+    $transazione = array($_SESSION["pubkey"],$destinatario,$importo,$timestamp);
+    // echo decryptRSA($transazione[4]);
+    echo "<br>".hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp)));
+    $blockchainArray = file_get_contents("blockchain.json");
+    $blockchainArray = json_decode($blockchainArray,TRUE);
+    $blockchainArray[count($blockchainArray)-1]["Transazioni"][] = $transazione;
+    $blockchainErased = fopen("blockchain.json","w");
+    print_r($blockchainArray);
+    fwrite($blockchainErased,json_encode($blockchainArray));
+    fclose($blockchainErased);
 }
 
 function createNewBlock(){
+    $blockchainArray = file_get_contents("blockchain.json");
+    $blockchainArray = json_decode($blockchainArray,TRUE);
+    if(filesize("blockchain.json")){
+        $blocco = array("Transazioni"=>array(),"hashPrecedente"=>hash("sha256",serialize($blockchainArray[count($blockchainArray)-1])));
+        $blockchainErased = fopen("blockchain.json","w");
+        // array_push($blockchainArray[count($blockchainArray)],$blocco);
+        $blockchainArray[]=$blocco;
+        fwrite($blockchainErased,json_encode($blockchainArray));
+        fclose($blockchainErased);
+    }else{
+        $bloccoGenesi = array(array("Transazioni"=>array(),"hashPrecedente"=>0));
+        $blockchainErased = fopen("blockchain.json","w");
+        fwrite($blockchainErased,json_encode($bloccoGenesi));
+        fclose($blockchainErased);
+    }
 
 }
 
