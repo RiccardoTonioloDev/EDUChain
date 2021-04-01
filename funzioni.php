@@ -128,7 +128,7 @@ function addTransaction(){
     $lock = fopen("Lock.txt","c+");
     while(flock($lock,LOCK_EX)===FALSE){
     }
-    createNewBlock();
+    // createNewBlock();
     createNewTransaction("provaDestinatario",396);
     fclose($lock);
 
@@ -137,14 +137,13 @@ function addTransaction(){
 function createNewTransaction($destinatario,$importo){
     $timestamp = time();
     // ,encryptRSA(hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp))))
-    $transazione = array($_SESSION["pubkey"],$destinatario,$importo,$timestamp);
-    // echo decryptRSA($transazione[4]);
+    $transazione = array($_SESSION["pubkey"],$destinatario,$importo,$timestamp,utf8_encode(encryptRSA(hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp))))));
+    echo decryptRSA(utf8_decode($transazione[4]));
     echo "<br>".hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp)));
     $blockchainArray = file_get_contents("blockchain.json");
     $blockchainArray = json_decode($blockchainArray,TRUE);
     $blockchainArray[count($blockchainArray)-1]["Transazioni"][] = $transazione;
     $blockchainErased = fopen("blockchain.json","w");
-    print_r($blockchainArray);
     fwrite($blockchainErased,json_encode($blockchainArray));
     fclose($blockchainErased);
 }
