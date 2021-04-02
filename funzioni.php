@@ -34,6 +34,7 @@ function logOut(){
     unset($_SESSION["password"]);
     unset($_SESSION["pubkey"]);
     unset($_SESSION["privkey"]);
+    unset($_SESSION["importo"]);
     session_destroy();
 }
 
@@ -128,17 +129,26 @@ function addTransaction(){
     $lock = fopen("Lock.txt","c+");
     while(flock($lock,LOCK_EX)===FALSE){
     }
-    // createNewBlock();
-    createNewTransaction("provaDestinatario",396);
+    createNewBlock();
+    createNewTransaction("-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMzOYRVq3ybatDs3WllSalsoU3y5jzxD\r\nwAdFfOXoMS9FRWWBQ9GT1Vi2rdSbvZZcoWDpp5DsEF1NBuFb2rNyVwMCAwEAAQ==\r\n-----END PUBLIC KEY--",396);
     fclose($lock);
 
 }
 
+function addMoneyGenerated($importo){
+    verifyFile();
+    $lock = fopen("Lock.txt","c+");
+    while(flock($lock,LOCK_EX)===FALSE){
+    }
+    createNewBlock();
+    createNewMoney($importo);
+    fclose($lock);
+}
+
 function createNewTransaction($destinatario,$importo){
     $timestamp = time();
-    // ,encryptRSA(hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp))))
-    $transazione = array($_SESSION["pubkey"],$destinatario,$importo,$timestamp,utf8_encode(encryptRSA(hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp))))));
-    echo decryptRSA(utf8_decode($transazione[4]));
+    $transazione = array("Mittente"=>$_SESSION["pubkey"],"Destinatario"=>$destinatario,"Importo"=>$importo,"Timestamp"=>$timestamp,"Hash firmato"=>utf8_encode(encryptRSA(hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp))))));
+    echo decryptRSA(utf8_decode($transazione["Hash firmato"]));
     echo "<br>".hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp)));
     $blockchainArray = file_get_contents("blockchain.json");
     $blockchainArray = json_decode($blockchainArray,TRUE);
@@ -146,6 +156,35 @@ function createNewTransaction($destinatario,$importo){
     $blockchainErased = fopen("blockchain.json","w");
     fwrite($blockchainErased,json_encode($blockchainArray));
     fclose($blockchainErased);
+}
+
+function createNewMoney($importo){
+    $timestamp = time();
+    $transazione = array("Mittente"=>"NETWORK","Destinatario"=>$_SESSION["pubkey"],"Importo"=>$importo,"Timestamp"=>$timestamp);
+    $blockchainArray = file_get_contents("blockchain.json");
+    $blockchainArray = json_decode($blockchainArray,TRUE);
+    $blockchainArray[count($blockchainArray)-1]["Transazioni"][] = $transazione;
+    $blockchainErased = fopen("blockchain.json","w");
+    fwrite($blockchainErased,json_encode($blockchainArray));
+    fclose($blockchainErased);
+}
+
+function totalAmount(){
+    $total = 0;
+    $blockchainArray = file_get_contents("blockchain.json");
+    $blockchainArray = json_decode($blockchainArray,TRUE);
+    if(filesize("blockchain.json")){
+        foreach ($blockchainArray as $numBlocco => $blocco) {
+            for ($i=0; $i < count($blocco["Transazioni"]); $i++) { 
+                if($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
+                    $total+=$blocco["Transazioni"][$i]["Importo"];
+                }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {
+                    $total-=$blocco["Transazioni"][$i]["Importo"];
+                }
+            }
+        }
+    }
+    return $total;
 }
 
 function createNewBlock(){

@@ -13,6 +13,7 @@ include("funzioni.php");
             $_SESSION["password"] = $_POST["Password"];
             $_SESSION["pubkey"] = $user["ChiavePubblica"];
             $_SESSION["privkey"] = $user["ChiavePrivata"];
+            $_SESSION["importo"] = totalAmount();
             echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
         }
     }
@@ -41,6 +42,13 @@ include("funzioni.php");
         echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
     }
     if(isset($_POST["genera"]) and $_POST["genera"]==="Genera"){
-        addTransaction();
+        if($_POST["quantity"]>=0){
+            addMoneyGenerated($_POST["quantity"]);
+            $_SESSION["importo"] = totalAmount();
+            echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
+        }else{
+            $_SESSION["errorType"] = 6;
+            echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+        }
     }
 ?>

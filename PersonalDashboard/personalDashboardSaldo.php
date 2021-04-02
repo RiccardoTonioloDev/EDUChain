@@ -20,12 +20,12 @@
 <div class="navbar">
     <a href="#"><img class="logo" alt="logo" src="../Logo/EduchainLogo.png"></a>
     <ul class="nav-clickable">
-        <li><a class="clickable" href="#">Saldo</a></li>
-        <li><a class="clickable" href="#">Invia</a></li>
-        <li><a class="clickable" href="#">Ricevi</a></li>
+        <li><a class="clickable" href="personalDashboardSaldo.php">Saldo</a></li>
+        <li><a class="clickable" href="personalDashboardInvia.php">Invia</a></li>
+        <li><a class="clickable" href="personalDashboardRicevi.php">Ricevi</a></li>
         <li><a class="clickable" href="personalDashboardGenera.php">Genera</a></li>
-        <li><a class="clickable" href="#">Ritira</a></li>
-        <li><a class="clickable" href="#">Blockchain</a></li>
+        <li><a class="clickable" href="personalDashboardRitira.php">Ritira</a></li>
+        <li><a class="clickable" href="personalDashboardBlockchain.php">Blockchain</a></li>
     </ul>
 </div>
 <div class="container">
@@ -33,7 +33,9 @@
     <div class="saldo-card">
         <div class="saldo-show">
             <div>
-            29.99
+            <?php
+                echo $_SESSION["importo"]
+            ?>
             </div>
             <img src="../Logo/EduchainLogo-BlackV.png" alt="€" class="currency">
         </div>

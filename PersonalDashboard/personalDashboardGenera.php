@@ -20,22 +20,22 @@
 <div class="navbar">
     <a href="#"><img class="logo" alt="logo" src="../Logo/EduchainLogo.png"></a>
     <ul class="nav-clickable">
-        <li><a class="clickable" href="#">Saldo</a></li>
-        <li><a class="clickable" href="#">Invia</a></li>
-        <li><a class="clickable" href="#">Ricevi</a></li>
-        <li><a class="clickable" href="#">Genera</a></li>
-        <li><a class="clickable" href="#">Ritira</a></li>
-        <li><a class="clickable" href="#">Blockchain</a></li>
+        <li><a class="clickable" href="personalDashboardSaldo.php">Saldo</a></li>
+        <li><a class="clickable" href="personalDashboardInvia.php">Invia</a></li>
+        <li><a class="clickable" href="personalDashboardRicevi.php">Ricevi</a></li>
+        <li><a class="clickable" href="personalDashboardGenera.php">Genera</a></li>
+        <li><a class="clickable" href="personalDashboardRitira.php">Ritira</a></li>
+        <li><a class="clickable" href="personalDashboardBlockchain.php">Blockchain</a></li>
     </ul>
 </div>
 <div class="container">
-    <div class="intestazione">Quante monete EDU desideri generare riccardo <?php echo $_SESSION["username"]; ?>?</div>
+    <div class="intestazione">Quante monete EDU desideri generare <?php echo $_SESSION["username"]; ?>?</div>
     <form  action="../elaborazioneRichieste.php" method="post" class="saldo-card">
         <div class="saldo-show">
             <div>
             +
             </div>
-            <input class="quantita" type="number" name="quantity">
+            <input class="quantita" type="number" name="quantity" required>
             <img src="../Logo/EduchainLogo-BlackV.png" alt="€" class="currency">
         </div>
         <button class="refresh-button" type="submit" name="genera" value="Genera">Genera</button>
