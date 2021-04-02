@@ -39,7 +39,7 @@
             </div>
             <img src="../Logo/EduchainLogo-BlackV.png" alt="€" class="currency">
         </div>
-        <form action="personalDashboardSaldo.php" method="post">
+        <form action="../elaborazioneRichieste.php" method="post">
             <button class="refresh-button" type="submit" name="refresh" value="Aggiorna">Aggiorna</button>
         </form>
     </div>

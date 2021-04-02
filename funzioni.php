@@ -54,6 +54,14 @@ function decryptRSA($chiphertext){
     return $plainText;
 }
 
+function decryptRSAKeyGiven($publicKey,$chiphertext){
+    $rsa = new Crypt_RSA();
+    $rsa->loadKey($publicKey);
+    $rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
+    $plainText = $rsa->decrypt($chiphertext);
+    return $plainText;
+}
+
 function createNewKeyPair(){
     //Genera private keys da 492 caratteri
     //Genera public keys da 181 caratteri
@@ -134,6 +142,17 @@ function addTransaction(){
     fclose($lock);
 
 }
+function verifyTransaction($transazione){
+    if($transazione["Mittente"]==="NETWORK" or $transazione["Destinatario"]==="NETWORK"){
+        return true;
+    }else{
+        if(hash("sha256",serialize(array($transazione["Mittente"],$transazione["Destinatario"],$transazione["Importo"],$transazione["Timestamp"])))===decryptRSAKeyGiven($transazione["Mittente"],utf8_decode($transazione["Hash firmato"]))){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
 
 function addMoneyGenerated($importo){
     verifyFile();
@@ -176,10 +195,12 @@ function totalAmount(){
     if(filesize("blockchain.json")){
         foreach ($blockchainArray as $numBlocco => $blocco) {
             for ($i=0; $i < count($blocco["Transazioni"]); $i++) { 
-                if($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
-                    $total+=$blocco["Transazioni"][$i]["Importo"];
-                }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {
-                    $total-=$blocco["Transazioni"][$i]["Importo"];
+                if(verifyTransaction($blocco["Transazioni"][$i])){
+                    if($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
+                        $total+=$blocco["Transazioni"][$i]["Importo"];
+                    }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {
+                        $total-=$blocco["Transazioni"][$i]["Importo"];
+                    }
                 }
             }
         }

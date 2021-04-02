@@ -51,4 +51,8 @@ include("funzioni.php");
             echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
         }
     }
+    if(isset($_POST["refresh"]) and $_POST["refresh"]==="Aggiorna"){
+        $_SESSION["importo"] = totalAmount();
+        echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
+    }
 ?>
