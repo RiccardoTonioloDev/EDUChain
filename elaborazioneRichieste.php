@@ -6,8 +6,7 @@ include("funzioni.php");
         $user = findUser($_POST["UserID"],$_POST["Password"]);
         if($user["count(*)"]==0){
             //Utente non trovato, credenziali di accesso sbagliate
-            $_SESSION["errorType"] = 1;
-            echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+            errorHandlingSorter(1,"index.php");
         }else{
             $_SESSION["username"] = $_POST["UserID"];
             $_SESSION["password"] = $_POST["Password"];
@@ -19,9 +18,8 @@ include("funzioni.php");
     }
     if(isset($_POST["Registrazione"]) and $_POST["Registrazione"]==="Invia"){
         if($_POST["Password1"]!==$_POST["Password2"]){
-            $_SESSION["errorType"] = 2;
-            echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
-            exit;
+            // Le password non combaciano
+            errorHandlingSorter(2,"errorHandling.php");
         }else{
             if(!addNewUser($_POST["UserID"],$_POST["Password1"])===TRUE){
                 $_SESSION["registrationDone"] = 1;
@@ -29,10 +27,7 @@ include("funzioni.php");
                 exit;
             }else{
                 //Esiste già un account con quel nome
-                $_SESSION["errorType"] = 3;
-                echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
-                exit;
-                
+                errorHandlingSorter(3,"errorHandling.php");
             }
             
         }
@@ -48,8 +43,7 @@ include("funzioni.php");
             echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
         }else{
             // si aggiunge al saldo un numero negativo di soldi
-            $_SESSION["errorType"] = 6;
-            echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+            errorHandlingSorter(6,"errorHandling.php");
         }
     }
     if(isset($_POST["refresh"]) and $_POST["refresh"]==="Aggiorna"){
@@ -64,12 +58,11 @@ include("funzioni.php");
                 echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
             }else{
                 // si rimuove dal saldo un numero negativo di soldi
-                $_SESSION["errorType"] = 8;
-                echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+                errorHandlingSorter(8,"errorHandling.php");
             }
         }else{
-            $_SESSION["errorType"] = 7;
-            echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+            // Il saldo corrente è minore della richiesta da sotrrarre
+            errorHandlingSorter(7,"errorHandling.php");
         }
     }
 ?>

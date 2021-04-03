@@ -6,13 +6,11 @@ function findUser($IdUtente,$Password){
     $conn = new mysqli("localhost","root");
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+        errorHandlingSorter(4,"errorHandling.php");
     }
     if(!$conn->select_db("ritchain")){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+        errorHandlingSorter(4,"errorHandling.php");
     }
     $IdUtente = secureString($conn,$IdUtente);
     $Password = secureString($conn,$Password);
@@ -21,8 +19,7 @@ function findUser($IdUtente,$Password){
     $conn -> close();
     if(!$result){
         //Errore della query, possibile server offline
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+        errorHandlingSorter(4,"errorHandling.php");
     }else{
         $row = mysqli_fetch_assoc($result);
         return $row;
@@ -33,13 +30,11 @@ function userComboBox(){
     $conn = new mysqli("localhost","root");
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = '../errorHandling.php'; </script>";
+        errorHandlingSorter(4,"../errorHandling.php");
     }
     if(!$conn->select_db("ritchain")){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = '../errorHandling.php'; </script>";
+        errorHandlingSorter(4,"../errorHandling.php");
     }
     $SQLquery = "SELECT IdUtente FROM utenti";
     $result = $conn->query($SQLquery);
@@ -56,18 +51,24 @@ function pubkeyUsernameGiven($username){
     $conn = new mysqli("localhost","root");
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = '../errorHandling.php'; </script>";
+        errorHandlingSorter(4,"../errorHandling.php");
     }if(!$conn->select_db("ritchain")){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = '../errorHandling.php'; </script>";
+        errorHandlingSorter(4,"../errorHandling.php");
     }
     $SQLquery = "SELECT ChiavePubblica FROM utenti WHERE IdUtente = '".secureString($conn,$username)."'";
     $result = $conn->query($SQLquery);
     $conn->close();
     $row = mysqli_fetch_assoc($result);
     return $row;
+}
+
+function startPersonalDashboard(){
+    session_start();
+    if(!isset($_SESSION["username"])){
+        //Utente tenta di accedere alla dashboard senza login
+        errorHandlingSorter(5,"../index.php");
+    }
 }
 
 function logOut(){
@@ -77,6 +78,11 @@ function logOut(){
     unset($_SESSION["privkey"]);
     unset($_SESSION["importo"]);
     session_destroy();
+}
+
+function  errorHandlingSorter(int $errorType, string $path){
+    $_SESSION["errorType"] = $errorType;
+    echo "<script type='text/javascript'> document.location = '".$path."'; </script>";
 }
 
 function encryptRSA($plainText){
@@ -121,13 +127,11 @@ function addNewUser($IdUtente,$Password){
     $conn = new mysqli("localhost","root");
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+        errorHandlingSorter(4,"errorHandling.php");
     }
     if(!$conn->select_db("ritchain")){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+        errorHandlingSorter(4,"errorHandling.php");
     }
     $IdUtente = secureString($conn,$IdUtente);
     $Password = secureString($conn,$Password);
@@ -161,8 +165,7 @@ function CheckUserExist($conn,$IdUtente){
     $result = $conn->query($SQLquery) or trigger_error("Query Failed! SQL:  - Error: ".mysqli_error($conn), E_USER_ERROR);
     if(!$result){
         //Problemi con l'host del database o con il database stesso
-        $_SESSION["errorType"] = 4;
-        echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+        errorHandlingSorter(4,"errorHandling.php");
     }else{
         $row = mysqli_fetch_assoc($result);
         if(intval($row["count(*)"])===0){
