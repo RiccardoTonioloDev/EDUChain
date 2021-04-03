@@ -24,18 +24,23 @@ if(isset($_SESSION["username"])){
     
     <div class="intestazione">Pagina di login</div>
     <?php
-    if(isset($_SESSION["registrationDone"]) and $_SESSION["registrationDone"]===1){
-        $_SESSION["registrationDone"] = 0;
-        echo "<div class='intestazione'>Accedi con le credenziali appena create!</div>";
-    }
-    if(isset($_SESSION["errorType"]) and $_SESSION["errorType"]===1){
-        $_SESSION["errorType"] = 0;
-        echo "<div style='background-color:red;' class='intestazione'>Credenziali errate!</div>";
-    }
-    if(isset($_SESSION["errorType"]) and $_SESSION["errorType"]===5){
-        $_SESSION["errorType"] = 0;
-        echo "<div style='background-color:red;' class='intestazione'>Prima devi effettuare il login!</div>";
-    }?>
+        if(isset($_SESSION["registrationDone"]) and $_SESSION["registrationDone"]===1){
+            $_SESSION["registrationDone"] = 0;
+            echo "<div class='intestazione'>Accedi con le credenziali appena create!</div>";
+        }
+        if(isset($_SESSION["errorType"])){
+            switch($_SESSION["errorType"]){
+                case 1:
+                    $_SESSION["errorType"] = 0;
+                    echo "<div style='background-color:red;' class='intestazione'>Credenziali errate!</div>";
+                    break;
+                case 5:
+                    $_SESSION["errorType"] = 0;
+                    echo "<div style='background-color:red;' class='intestazione'>Prima devi effettuare il login!</div>";
+                    break;
+            }
+        }
+    ?>
     
     <form action="elaborazioneRichieste.php" method="post">
         <div class="login-card">
