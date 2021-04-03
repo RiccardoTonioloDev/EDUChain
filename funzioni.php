@@ -164,6 +164,15 @@ function addMoneyGenerated($importo){
     fclose($lock);
 }
 
+function deleteMoney($importo){
+    verifyFile();
+    $lock = fopen("Lock.txt","c+");
+    while(flock($lock,LOCK_EX)===FALSE){
+    }
+    eraseMoney($importo);
+    fclose($lock);
+}
+
 function createNewTransaction($destinatario,$importo){
     $timestamp = time();
     $transazione = array("Mittente"=>$_SESSION["pubkey"],"Destinatario"=>$destinatario,"Importo"=>$importo,"Timestamp"=>$timestamp,"Hash firmato"=>utf8_encode(encryptRSA(hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp))))));
@@ -180,6 +189,17 @@ function createNewTransaction($destinatario,$importo){
 function createNewMoney($importo){
     $timestamp = time();
     $transazione = array("Mittente"=>"NETWORK","Destinatario"=>$_SESSION["pubkey"],"Importo"=>$importo,"Timestamp"=>$timestamp);
+    $blockchainArray = file_get_contents("blockchain.json");
+    $blockchainArray = json_decode($blockchainArray,TRUE);
+    $blockchainArray[count($blockchainArray)-1]["Transazioni"][] = $transazione;
+    $blockchainErased = fopen("blockchain.json","w");
+    fwrite($blockchainErased,json_encode($blockchainArray));
+    fclose($blockchainErased);
+}
+
+function eraseMoney($quantitaDaSottrarre){
+    $timestamp = time();
+    $transazione = array("Mittente"=>$_SESSION["pubkey"],"Destinatario"=>"NETWORK","Importo"=>$quantitaDaSottrarre,"Timestamp"=>$timestamp);
     $blockchainArray = file_get_contents("blockchain.json");
     $blockchainArray = json_decode($blockchainArray,TRUE);
     $blockchainArray[count($blockchainArray)-1]["Transazioni"][] = $transazione;
@@ -206,6 +226,14 @@ function totalAmount(){
         }
     }
     return $total;
+}
+
+function verificaSaldo($quantitaDaSottrarre){
+    if($_SESSION["importo"]<$quantitaDaSottrarre){
+        return false;
+    }else{
+        return true;
+    }
 }
 
 function createNewBlock(){

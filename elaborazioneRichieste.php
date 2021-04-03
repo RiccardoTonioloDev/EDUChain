@@ -47,6 +47,7 @@ include("funzioni.php");
             $_SESSION["importo"] = totalAmount();
             echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
         }else{
+            // si aggiunge al saldo un numero negativo di soldi
             $_SESSION["errorType"] = 6;
             echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
         }
@@ -54,5 +55,21 @@ include("funzioni.php");
     if(isset($_POST["refresh"]) and $_POST["refresh"]==="Aggiorna"){
         $_SESSION["importo"] = totalAmount();
         echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
+    }
+    if(isset($_POST["ritira"]) and $_POST["ritira"]==="Ritira"){
+        if(verificaSaldo($_POST["quantity"])){
+            if($_POST["quantity"]>=0){
+                deleteMoney($_POST["quantity"]);
+                $_SESSION["importo"] = totalAmount();
+                echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
+            }else{
+                // si rimuove dal saldo un numero negativo di soldi
+                $_SESSION["errorType"] = 8;
+                echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+            }
+        }else{
+            $_SESSION["errorType"] = 7;
+            echo "<script type='text/javascript'> document.location = 'errorHandling.php'; </script>";
+        }
     }
 ?>

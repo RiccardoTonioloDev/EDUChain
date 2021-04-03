@@ -47,6 +47,20 @@ session_start();
                 echo "<form action='PersonalDashboard/personalDashboardGenera.php' method='post' class='button-container'>
                         <button class='login-button' type='submit' name='Return' value='Invia'>Riprova</button>
                       </form>";
+            }if(isset($_SESSION["errorType"]) and $_SESSION["errorType"]===7){
+                $_SESSION["errorType"] = 0;
+                echo "<div class='titoloErrore'>Non disponi di un saldo abbastanza grande</div>";
+                echo "<div class='corpoErrore'>Per piacere, assicurarsi di possedere abbastanza monete da sostenere la transazione desiderata</div>";
+                echo "<form action='PersonalDashboard/personalDashboardRitira.php' method='post' class='button-container'>
+                        <button class='login-button' type='submit' name='Return' value='Invia'>Riprova</button>
+                      </form>";
+            }if(isset($_SESSION["errorType"]) and $_SESSION["errorType"]===8){
+                $_SESSION["errorType"] = 0;
+                echo "<div class='titoloErrore'>Numero di monete da ritirare con valore negativo</div>";
+                echo "<div class='corpoErrore'>Per piacere inserire una somma da ritirare che sia maggiore o uguale a zero</div>";
+                echo "<form action='PersonalDashboard/personalDashboardRitira.php' method='post' class='button-container'>
+                        <button class='login-button' type='submit' name='Return' value='Invia'>Riprova</button>
+                      </form>";
             }
         ?>
         
