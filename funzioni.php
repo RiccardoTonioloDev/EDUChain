@@ -29,6 +29,47 @@ function findUser($IdUtente,$Password){
     }
 }
 
+function userComboBox(){
+    $conn = new mysqli("localhost","root");
+    if($conn->connect_error){
+        //Problemi con l'host del database o con il database stesso
+        $_SESSION["errorType"] = 4;
+        echo "<script type='text/javascript'> document.location = '../errorHandling.php'; </script>";
+    }
+    if(!$conn->select_db("ritchain")){
+        //Problemi con l'host del database o con il database stesso
+        $_SESSION["errorType"] = 4;
+        echo "<script type='text/javascript'> document.location = '../errorHandling.php'; </script>";
+    }
+    $SQLquery = "SELECT IdUtente FROM utenti";
+    $result = $conn->query($SQLquery);
+    $conn -> close();
+    $rows = mysqli_fetch_all($result);
+    echo "<select name='utenti' class='selectionUtenti'>";
+    foreach ($rows as $key => $value) {
+        echo "<option value='".$value[0]."'>".$value[0]."</option>";
+    }
+    echo "</select>";
+}
+
+function pubkeyUsernameGiven($username){
+    $conn = new mysqli("localhost","root");
+    if($conn->connect_error){
+        //Problemi con l'host del database o con il database stesso
+        $_SESSION["errorType"] = 4;
+        echo "<script type='text/javascript'> document.location = '../errorHandling.php'; </script>";
+    }if(!$conn->select_db("ritchain")){
+        //Problemi con l'host del database o con il database stesso
+        $_SESSION["errorType"] = 4;
+        echo "<script type='text/javascript'> document.location = '../errorHandling.php'; </script>";
+    }
+    $SQLquery = "SELECT ChiavePubblica FROM utenti WHERE IdUtente = '".secureString($conn,$username)."'";
+    $result = $conn->query($SQLquery);
+    $conn->close();
+    $row = mysqli_fetch_assoc($result);
+    return $row;
+}
+
 function logOut(){
     unset($_SESSION["usename"]);
     unset($_SESSION["password"]);
