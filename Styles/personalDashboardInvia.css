@@ -1,0 +1,167 @@
+@import url('Lexend-Medium.ttf');
+@import url('RobotoMono-Light.ttf');
+
+*{
+    padding:0;
+    margin:0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+    background-color: antiquewhite;
+}
+
+.logo{
+    max-width: 50px;
+    padding-left:3vw;
+    height: auto;
+}
+
+.currency{
+    max-width: 50px;
+    padding-left:2vw;
+    height: auto;
+}
+
+
+.intestazione{
+    font-family: 'Lexend', sans-serif;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 2em;
+    border-radius: 15px;
+    background-color: rgb(12, 184, 184);
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+    width: 40vw;
+    text-align: center;
+}
+
+.action-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(12, 184, 184);
+    border-radius: 25px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+    padding-left: 22px;
+    padding-right: 22px;
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.5em;
+    color:white;
+    margin-bottom: 1vh;
+}
+
+.method-card{
+    background-color: aliceblue;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    font-size: 0.8em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.action-show{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding:5px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.actionBox{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.refresh-button{
+    font-family: 'Lexend', sans-serif;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 0.9em;
+    border-style: none;
+    border-radius: 10px;
+    background-color: rgb(167, 133, 89);
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    margin-top: 2vh;
+}
+
+.logout-button{
+    font-family: 'Lexend', sans-serif;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 1.3em;
+    border-style: none;
+    border-radius: 10px;
+    background-color: rgb(167, 133, 89);
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.refresh-button:focus, .refresh-button:hover, .logout-button:focus, .logout-button:hover{
+    background-color: rgb(145, 116, 78);
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:10vh;
+    background-color: rgb(167, 133, 89);
+    color: white;
+    font-size: 2em;
+    font-family:'Roboto Mono', monospace;
+}
+
+.nav-clickable{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.clickable {
+    padding-right: 2vw;
+    text-decoration: none;
+    color: white
+}
+
+
+
+.login-button:focus, .login-button:hover, .register-button:focus, .register-button:hover{
+    background-color: rgb(145, 116, 78);
+}
+
+.quantita{
+    max-width: 30vw;
+    max-height: 10vw;
+    font-size: 1.5em;
+}

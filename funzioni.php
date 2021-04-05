@@ -40,7 +40,7 @@ function userComboBox(){
     $result = $conn->query($SQLquery);
     $conn -> close();
     $rows = mysqli_fetch_all($result);
-    echo "<select name='utenti' class='selectionUtenti'>";
+    echo "<select name='nome' class='selectionUtenti'>";
     foreach ($rows as $key => $value) {
         echo "<option value='".$value[0]."'>".$value[0]."</option>";
     }
@@ -176,13 +176,13 @@ function CheckUserExist($conn,$IdUtente){
     }
 }
 
-function addTransaction(){
+function addTransaction(string $destinatario,$importo){
     verifyFile();
     $lock = fopen("Lock.txt","c+");
     while(flock($lock,LOCK_EX)===FALSE){
     }
     createNewBlock();
-    createNewTransaction("-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMzOYRVq3ybatDs3WllSalsoU3y5jzxD\r\nwAdFfOXoMS9FRWWBQ9GT1Vi2rdSbvZZcoWDpp5DsEF1NBuFb2rNyVwMCAwEAAQ==\r\n-----END PUBLIC KEY--",396);
+    createNewTransaction($destinatario,$importo);
     fclose($lock);
 
 }
