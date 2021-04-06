@@ -24,7 +24,7 @@
     </ul>
 </div>
 <div class="container">
-    <div class="intestazione">Il saldo di <?php echo $_SESSION["username"]; ?></div>
+    <div class="intestazione">Il tuo saldo:</div>
     <div class="saldo-card">
         <div class="saldo-show">
             <div>
