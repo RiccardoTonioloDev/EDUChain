@@ -94,6 +94,14 @@
     margin-bottom: 6px;
 }
 
+.action-box{
+    font-size: 0.4em;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+
+}
+
 .refresh-button{
     font-family: 'Lexend', sans-serif;
     padding-top: 8px;

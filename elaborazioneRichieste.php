@@ -65,4 +65,28 @@ include("funzioni.php");
             errorHandlingSorter(7,"errorHandling.php");
         }
     }
+    if(isset($_POST["invia-transaction"]) and $_POST["invia-transaction"]==="invia"){
+        $conn = mysqliConnectorCreator();
+        if(CheckUserExist($conn,$_POST["nome"])){
+            $conn->close();
+            if(verificaSaldo($_POST["quantity"])){
+                if($_POST["quantity"]>=0){
+                    addTransaction(pubkeyUsernameGiven($_POST["nome"]),$_POST["quantity"]);
+                    $_SESSION["importo"] = totalAmount();
+                    echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
+                }else{
+                    // si rimuove dal saldo un numero negativo di soldi
+                    errorHandlingSorter(11,"errorHandling.php");
+                }
+            }else{
+                // Il saldo corrente è minore della richiesta da sotrrarre
+                errorHandlingSorter(10,"errorHandling.php");
+            }
+        }else{
+            $conn->close();
+            // Si sta cercando di mandare una somma di denaro a un utente inesistente
+            errorHandlingSorter(9,"errorHandling.php");
+        }
+        
+    }
 ?>

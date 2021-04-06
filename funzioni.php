@@ -60,7 +60,7 @@ function pubkeyUsernameGiven($username){
     $result = $conn->query($SQLquery);
     $conn->close();
     $row = mysqli_fetch_assoc($result);
-    return $row;
+    return $row["ChiavePubblica"];
 }
 
 function startPersonalDashboard(){
@@ -160,7 +160,21 @@ function secureString($conn,$dataString){
     return mysqli_real_escape_string($conn,stripslashes($dataString));
 }
 
+function mysqliConnectorCreator(){
+    $conn = new mysqli("localhost","root");
+    if($conn->connect_error){
+        //Problemi con l'host del database o con il database stesso
+        errorHandlingSorter(4,"errorHandling.php");
+    }
+    if(!$conn->select_db("ritchain")){
+        //Problemi con l'host del database o con il database stesso
+        errorHandlingSorter(4,"errorHandling.php");
+    }
+    return $conn;
+}
+
 function CheckUserExist($conn,$IdUtente){
+    $IdUtente = secureString($conn,$IdUtente);
     $SQLquery = "SELECT count(*) FROM utenti WHERE IdUtente = '".$IdUtente."'";
     $result = $conn->query($SQLquery) or trigger_error("Query Failed! SQL:  - Error: ".mysqli_error($conn), E_USER_ERROR);
     if(!$result){
@@ -220,8 +234,6 @@ function deleteMoney($importo){
 function createNewTransaction($destinatario,$importo){
     $timestamp = time();
     $transazione = array("Mittente"=>$_SESSION["pubkey"],"Destinatario"=>$destinatario,"Importo"=>$importo,"Timestamp"=>$timestamp,"Hash firmato"=>utf8_encode(encryptRSA(hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp))))));
-    echo decryptRSA(utf8_decode($transazione["Hash firmato"]));
-    echo "<br>".hash("sha256",serialize(array($_SESSION["pubkey"],$destinatario,$importo,$timestamp)));
     $blockchainArray = file_get_contents("blockchain.json");
     $blockchainArray = json_decode($blockchainArray,TRUE);
     $blockchainArray[count($blockchainArray)-1]["Transazioni"][] = $transazione;
@@ -261,7 +273,9 @@ function totalAmount(){
         foreach ($blockchainArray as $numBlocco => $blocco) {
             for ($i=0; $i < count($blocco["Transazioni"]); $i++) { 
                 if(verifyTransaction($blocco["Transazioni"][$i]) and !in_array(hash("sha256",serialize($blocco["Transazioni"][$i])),$hashedSeen)){
-                    if($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
+                    if($blocco["Transazioni"][$i]["Destinatario"]===$blocco["Transazioni"][$i]["Mittente"]){
+                        $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                    }elseif($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
                         $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
                         $total+=$blocco["Transazioni"][$i]["Importo"];
                     }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {

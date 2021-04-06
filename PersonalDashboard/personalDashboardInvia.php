@@ -32,7 +32,7 @@
     <div class="intestazione">Selezionare il metodo per trovare a chi mandare denaro:
         <div class="method-card">
             <div>
-                <input type="radio" name="methodChosen" id="typedName" onClick="typeName()" value="Scrivi il nome">
+                <input type="radio" name="methodChosen" id="typedName" onClick="typeName()" value="Scrivi il nome" checked>
                 <label for="Scrivi il nome">Scrivi il nome</label>
             </div>
             <div>
@@ -51,7 +51,7 @@
                 <img src="../Logo/EduchainLogo-BlackV.png" alt="€" class="currency">
             </div>
         </div>
-        <button class="refresh-button" type="submit" name="genera" value="Genera">Invia</button>
+        <button class="refresh-button" type="submit" name="invia-transaction" value="invia">Invia</button>
     </form>
     <form action="../elaborazioneRichieste.php" method="post">
         <button class="logout-button" type="submit" name="logout" value="logout">Effettua logout</button>
@@ -59,10 +59,10 @@
 </div>
 <script>
     function findName(){
-        document.getElementById("actionBox").innerHTML = "<?php userComboBox() ?>";
+        document.getElementById("actionBox").innerHTML = "<div class='action-box'><div>Scegli uno username tra quelli elencati:</div><?php userComboBox() ?></div>";
     }
     function typeName(){
-        document.getElementById("actionBox").innerHTML = "<input type='text' name='nome'>";
+        document.getElementById("actionBox").innerHTML = "<div class='action-box'><div>Digita lo username della persona a cui mandare i soldi:</div><input type='text' name='nome' required></div>";
     }
 </script>
 </body>

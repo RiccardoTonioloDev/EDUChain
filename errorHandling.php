@@ -63,8 +63,32 @@ session_start();
                     case 8:
                         $_SESSION["errorType"] = 0;
                         echo "<div class='titoloErrore'>Numero di monete da ritirare con valore negativo</div>";
-                        echo "<div class='corpoErrore'>Per piacere inserire una somma da ritirare che sia maggiore o uguale a zero</div>";
+                        echo "<div class='corpoErrore'>Per piacere inserire una somma da ritirare che sia maggiore o uguale a zero.</div>";
                         echo "<form action='PersonalDashboard/personalDashboardRitira.php' method='post' class='button-container'>
+                                <button class='login-button' type='submit' name='Return' value='Invia'>Riprova</button>
+                            </form>";
+                        break;
+                    case 9:
+                        $_SESSION["errorType"] = 0;
+                        echo "<div class='titoloErrore'>Username cercato inesistente.</div>";
+                        echo "<div class='corpoErrore'>Per piacere assicurarsi di aver inserito uno username a cui inviare soldi, realmente esistente</div>";
+                        echo "<form action='PersonalDashboard/personalDashboardInvia.php' method='post' class='button-container'>
+                                <button class='login-button' type='submit' name='Return' value='Invia'>Riprova</button>
+                            </form>";
+                        break;
+                    case 10:
+                        $_SESSION["errorType"] = 0;
+                        echo "<div class='titoloErrore'>Saldo insufficiente</div>";
+                        echo "<div class='corpoErrore'>Il tuo saldo è insufficiente per sostenere la transazione che hai appena cercato di eseguire.</div>";
+                        echo "<form action='PersonalDashboard/personalDashboardInvia.php' method='post' class='button-container'>
+                                <button class='login-button' type='submit' name='Return' value='Invia'>Riprova</button>
+                            </form>";
+                        break;
+                    case 11:
+                        $_SESSION["errorType"] = 0;
+                        echo "<div class='titoloErrore'>Importo nella transazione non valido</div>";
+                        echo "<div class='corpoErrore'>Per piacere, inserire un'importo positivo.</div>";
+                        echo "<form action='PersonalDashboard/personalDashboardInvia.php' method='post' class='button-container'>
                                 <button class='login-button' type='submit' name='Return' value='Invia'>Riprova</button>
                             </form>";
                         break;
