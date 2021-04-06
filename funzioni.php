@@ -294,21 +294,23 @@ function eraseMoney($quantitaDaSottrarre){
 
 function totalAmount(){
     $total = 0;
-    $blockchainArray = file_get_contents("blockchain.json");
-    $blockchainArray = json_decode($blockchainArray,TRUE);
-    $hashedSeen = array();
-    if(filesize("blockchain.json")){
-        foreach ($blockchainArray as $numBlocco => $blocco) {
-            for ($i=0; $i < count($blocco["Transazioni"]); $i++) { 
-                if(verifyTransaction($blocco["Transazioni"][$i]) and !in_array(hash("sha256",serialize($blocco["Transazioni"][$i])),$hashedSeen)){
-                    if($blocco["Transazioni"][$i]["Destinatario"]===$blocco["Transazioni"][$i]["Mittente"]){
-                        $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
-                    }elseif($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
-                        $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
-                        $total+=$blocco["Transazioni"][$i]["Importo"];
-                    }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {
-                        $total-=$blocco["Transazioni"][$i]["Importo"];
-                        $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+    if(file_exists("blockchain.json")){
+        if(filesize("blockchain.json")){
+            $blockchainArray = file_get_contents("blockchain.json");
+            $blockchainArray = json_decode($blockchainArray,TRUE);
+            $hashedSeen = array();
+            foreach ($blockchainArray as $numBlocco => $blocco) {
+                for ($i=0; $i < count($blocco["Transazioni"]); $i++) { 
+                    if(verifyTransaction($blocco["Transazioni"][$i]) and !in_array(hash("sha256",serialize($blocco["Transazioni"][$i])),$hashedSeen)){
+                        if($blocco["Transazioni"][$i]["Destinatario"]===$blocco["Transazioni"][$i]["Mittente"]){
+                            $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                        }elseif($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
+                            $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                            $total+=$blocco["Transazioni"][$i]["Importo"];
+                        }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {
+                            $total-=$blocco["Transazioni"][$i]["Importo"];
+                            $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                        }
                     }
                 }
             }
