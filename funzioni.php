@@ -195,8 +195,12 @@ function addTransaction(string $destinatario,$importo){
     $lock = fopen("Lock.txt","c+");
     while(flock($lock,LOCK_EX)===FALSE){
     }
-    createNewBlock();
-    createNewTransaction($destinatario,$importo);
+    if(VerifyTransactionsInABlock()){
+        createNewTransaction($destinatario,$importo);
+    }else{
+        createNewBlock();
+        createNewTransaction($destinatario,$importo);
+    }
     fclose($lock);
 
 }
@@ -217,8 +221,12 @@ function addMoneyGenerated($importo){
     $lock = fopen("Lock.txt","c+");
     while(flock($lock,LOCK_EX)===FALSE){
     }
-    createNewBlock();
-    createNewMoney($importo);
+    if(VerifyTransactionsInABlock()){
+        createNewMoney($importo);
+    }else{
+        createNewBlock();
+        createNewMoney($importo);
+    }
     fclose($lock);
 }
 
@@ -227,7 +235,12 @@ function deleteMoney($importo){
     $lock = fopen("Lock.txt","c+");
     while(flock($lock,LOCK_EX)===FALSE){
     }
-    eraseMoney($importo);
+    if(VerifyTransactionsInABlock()){
+        eraseMoney($importo);
+    }else{
+        createNewBlock();
+        eraseMoney($importo);
+    }
     fclose($lock);
 }
 
@@ -240,6 +253,21 @@ function createNewTransaction($destinatario,$importo){
     $blockchainErased = fopen("blockchain.json","w");
     fwrite($blockchainErased,json_encode($blockchainArray));
     fclose($blockchainErased);
+}
+
+function VerifyTransactionsInABlock(){
+    $blockchainArray = file_get_contents("blockchain.json");
+    $blockchainArray = json_decode($blockchainArray,TRUE);
+    $hashedSeen = array();
+    if(filesize("blockchain.json")){
+        if(count($blockchainArray[count($blockchainArray)-1]["Transazioni"])<3){
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
 }
 
 function createNewMoney($importo){
