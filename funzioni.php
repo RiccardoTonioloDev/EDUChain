@@ -319,6 +319,31 @@ function totalAmount(){
     return $total;
 }
 
+function circulatingSupply(){
+    $total = 0;
+    if(file_exists("blockchain.json")){
+        if(filesize("blockchain.json")){
+            $blockchainArray = file_get_contents("blockchain.json");
+            $blockchainArray = json_decode($blockchainArray,TRUE);
+            $hashedSeen = array();
+            foreach ($blockchainArray as $numBlocco => $blocco) {
+                for ($i=0; $i < count($blocco["Transazioni"]); $i++) { 
+                    if(verifyTransaction($blocco["Transazioni"][$i]) and !in_array(hash("sha256",serialize($blocco["Transazioni"][$i])),$hashedSeen)){
+                        if($blocco["Transazioni"][$i]["Destinatario"]==="NETWORK"){
+                            $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                            $total+=$blocco["Transazioni"][$i]["Importo"];
+                        }elseif ($blocco["Transazioni"][$i]["Mittente"]==="NETWORK") {
+                            $total-=$blocco["Transazioni"][$i]["Importo"];
+                            $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return $total;
+}
+
 function verificaSaldo($quantitaDaSottrarre){
     if($_SESSION["importo"]<$quantitaDaSottrarre){
         return false;
@@ -333,7 +358,6 @@ function createNewBlock(){
     if(filesize("blockchain.json")){
         $blocco = array("Transazioni"=>array(),"hashPrecedente"=>hash("sha256",serialize($blockchainArray[count($blockchainArray)-1])));
         $blockchainErased = fopen("blockchain.json","w");
-        // array_push($blockchainArray[count($blockchainArray)],$blocco);
         $blockchainArray[]=$blocco;
         fwrite($blockchainErased,json_encode($blockchainArray));
         fclose($blockchainErased);
@@ -344,6 +368,34 @@ function createNewBlock(){
         fclose($blockchainErased);
     }
 
+}
+
+function verifyBlockchain(){
+    $isNotCorrupted = true;
+    if(file_exists("../blockchain.json")){
+        if(filesize("../blockchain.json")){
+            $blockchainArray = file_get_contents("../blockchain.json");
+            $blockchainArray = json_decode($blockchainArray,TRUE);
+            $counter=0;
+
+            foreach ($blockchainArray as $numBlocco => $blocco) {
+                if($counter===0){
+                }else{
+                    echo $blocco["hashPrecedente"]."<br><br>";
+                    echo hash("sha256",serialize($blockchainArray[$counter-1]))."<br><br>";
+                    if($blocco["hashPrecedente"]!==hash("sha256",serialize($blockchainArray[$counter-1]))){
+                        $isNotCorrupted = false;
+                    }
+                }
+                $counter++;
+            }
+        }else{
+            $isNotCorrupted = true;
+        }
+    }else{
+        $isNotCorrupted = true;
+    }
+    return $isNotCorrupted;
 }
 
 function verifyFile(){
