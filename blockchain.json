@@ -180,5 +180,28 @@
             }
         ],
         "hashPrecedente": "6391538825ffc8649825fa70ce5f85e574d6aed686ca3576d8576126618434da"
+    },
+    {
+        "Transazioni": [
+            {
+                "Mittente": "NETWORK",
+                "Destinatario": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Importo": "40",
+                "Timestamp": 1617713134
+            },
+            {
+                "Mittente": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Destinatario": "NETWORK",
+                "Importo": "40",
+                "Timestamp": 1617713148
+            },
+            {
+                "Mittente": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Destinatario": "NETWORK",
+                "Importo": "40",
+                "Timestamp": 1617713148
+            }
+        ],
+        "hashPrecedente": "261f5b9dd057b6342a4b64ca829c0c4d97d2014197c9e42c6ba914e8e514e6b1"
     }
 ]
