@@ -1,0 +1,67 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.blocco{
+    margin:8px;
+    background-color: rgb(207, 207, 207);
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    align-items: center;
+    min-width:80%;
+    height: auto;
+    padding:10px;
+    border-radius: 25px;
+}
+
+.transazione{
+    margin:8px;
+    background-color: rgb(137, 157, 173);
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    min-width:80%;
+    height: auto;
+    padding:10px;
+    border-radius: 25px;
+}
+
+.mittente, .destinatario, .importo, .data, .hashFirmato{
+    margin:8px;
+    background-color: rgb(99, 111, 121);
+    display: flex;
+    color: white;
+    flex-flow: column;
+    justify-content: left;
+    min-width:80%;
+    height: auto;
+    padding:10px;
+    border-radius: 10px;
+}
+
+.hash{
+    margin:8px;
+    background-color: rgb(137, 157, 173);
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    min-width:80%;
+    height: auto;
+    padding:10px;
+    border-radius: 25px;
+}
+
+.header{
+    font-style: bold;
+    padding:8px;
+    border-radius: 5px;
+    background-color: rgb(231, 228, 17);
+    color: black;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
