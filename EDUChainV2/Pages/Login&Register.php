@@ -28,6 +28,55 @@
             </li>
         </ul>
     </div>
-    
+    <div class='container'>
+        <div class='card' id='card'>
+            <div class='cardHeader' id="formType" value='Registrati'>
+                Registrati
+            </div>
+            <form action='' method='post'>
+                <div class='cardContent'>
+                    <div class='username'>
+                        <div class='formTitle'>Username:</div>
+                        <input class='typeText' type='text' name='UserID' required>
+                    </div>
+                    <div class='password'>
+                        <div class='formTitle'>Password:</div>
+                        <input class='typeText' type='password' name='Password' required>
+                    </div>
+                </div>
+                <div class='cardButtons'>
+                    <input class='typeSubmit' type='submit' name='Login' value='Invia'>
+                    <div class='trigger' onclick='changeCard()'>Non hai ancora l'account? Clicca qui!</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function changeCard(){
+            if(document.getElementById("formType").getAttribute('value')=="Registrati"){
+                document.getElementById("card").innerHTML = `<div class='cardHeader' id='formType' value='Accedi'>
+                                                                    Accedi
+                                                                </div>
+                                                                <form action='' method='post'>
+                                                                    <div class='cardContent'>
+                                                                        <div class='username'>
+                                                                            <div class='formTitle'>Username:</div>
+                                                                            <input class='typeText' type='text' name='UserID' required>
+                                                                        </div>
+                                                                        <div class='password'>
+                                                                            <div class='formTitle'>Password:</div>
+                                                                            <input class='typeText' type='password' name='Password' required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class='cardButtons'>
+                                                                        <input class='typeSubmit' type='submit' name='Login' value='Invia'>
+                                                                        <div class='trigger' onclick='changeCard()'>Non hai ancora l'account? Clicca qui!</div>
+                                                                    </div>
+                                                                </form>`;
+            }else{
+                console.log(document.getElementById("formType").getAttribute('value'));
+            }
+        }
+    </script>
 </body>
 </html>
