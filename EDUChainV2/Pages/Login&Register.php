@@ -16,22 +16,22 @@
         <ul class="sideRight">
             <li>
                 <a class="nav-button" href="#">
+                    <img class="icon" src="../Images/dog-house-2white.png" alt="Home">
                     <div>Homepage</div>
-                    <div class="icon"></div>
                 </a>     
             </li>
             <li>
                 <a class="nav-button" href="#">
+                    <img class="icon" src="../Images/login-3white.png" alt="Accedi">
                     <div>Accedi</div>
-                    <div class="icon"></div>
                 </a>    
             </li>
         </ul>
     </div>
     <div class='container'>
         <div class='card' id='card'>
-            <div class='cardHeader' id="formType" value='Registrati'>
-                Registrati
+            <div class='cardHeader' id="formType" value='Accedi'>
+                Accedi
             </div>
             <form action='' method='post'>
                 <div class='cardContent'>
@@ -74,7 +74,29 @@
                                                                     </div>
                                                                 </form>`;
             }else{
-                console.log(document.getElementById("formType").getAttribute('value'));
+                document.getElementById("card").innerHTML = `<div class='cardHeader' id='formType' value='Registrati'>
+                                                                    Registrati
+                                                                </div>
+                                                                <form action='' method='post'>
+                                                                    <div class='cardContent'>
+                                                                        <div class='username'>
+                                                                            <div class='formTitle'>Username:</div>
+                                                                            <input class='typeText' type='text' name='UserID' required>
+                                                                        </div>
+                                                                        <div class='password'>
+                                                                            <div class='formTitle'>Password:</div>
+                                                                            <input class='typeText' type='password' name='Password1' required>
+                                                                        </div>
+                                                                        <div class='password'>
+                                                                            <div class='formTitle'>Ripeti la password:</div>
+                                                                            <input class='typeText' type='password' name='Password2' required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class='cardButtons'>
+                                                                        <input class='typeSubmit' type='submit' name='Login' value='Invia'>
+                                                                        <div class='trigger' onclick='changeCard()'>Hai già un account? Accedi qui!</div>
+                                                                    </div>
+                                                                </form>`;
             }
         }
     </script>
