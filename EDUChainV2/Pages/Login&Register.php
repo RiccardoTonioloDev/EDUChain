@@ -13,20 +13,28 @@
             <img class="logo" src="../Images/EduchainLogo-BlackV.png" alt="Logo">
             <div class="nav-text">EDUChain</div>
         </div>
-        <ul class="sideRight">
-            <li>
-                <a class="nav-button" href="#">
-                    <img class="icon" src="../Images/dog-house-2white.png" alt="Home">
-                    <div>Homepage</div>
-                </a>     
-            </li>
-            <li>
-                <a class="nav-button" href="#">
-                    <img class="icon" src="../Images/login-3white.png" alt="Accedi">
-                    <div>Accedi</div>
-                </a>    
-            </li>
-        </ul>
+        <div class="sideRight">
+            <ul class="nav-links">
+                <li>
+                    <a class="nav-button" href="#">
+                        <img class="icon" src="../Images/dog-house-2white.png" alt="Home">
+                        <div>Homepage</div>
+                    </a>     
+                </li>
+                <li>
+                    <a class="nav-button" href="#">
+                        <img class="icon" src="../Images/login-3white.png" alt="Accedi">
+                        <div>Accedi</div>
+                    </a>    
+                </li>
+                <li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
     </div>
     <div class='container'>
         <div class='card' id='card'>
@@ -99,6 +107,28 @@
                                                                 </form>`;
             }
         }
+
+        const navSlide = () =>{
+            const burger = document.querySelector('.hamburger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-button');
+
+
+            burger.addEventListener('click',()=>{
+                nav.classList.toggle('nav-active');
+                
+                navLinks.forEach((link,index) =>{
+                    if(link.style.animation){
+                        link.style.animation = "";
+                    }else{
+                        link.style.animation = "navLinkFade 0.5s ease forwards "+(index / 7)+"s";
+                    }
+                });
+                burger.classList.toggle("toggle");
+            });
+            
+        }
+        navSlide();
     </script>
 </body>
 </html>

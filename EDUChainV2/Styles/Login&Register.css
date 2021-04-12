@@ -64,8 +64,12 @@ body{
     list-style: none;
 }
 
-.sideRight{
-
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    list-style: none;
 }
 
 .nav-button{
@@ -90,6 +94,82 @@ body{
     margin-right: 8px;
 }
 
+.hamburger{
+    margin-right:30px;
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div{
+    width: 30px;
+    height:3px;
+    border-radius: 4px;
+    background-color: rgb(58, 58, 255);
+    margin: 5px;
+    transition:all 0.3s ease;
+}
+
+/*MOBILE NAVBAR*/
+@media screen and (max-width:600px){
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        top:80px;
+        width:150px;
+        height: 100px;
+        background: rgba(255, 255, 255, .7);
+	    -webkit-backdrop-filter: blur(10px);
+	    backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-flow: column;
+        border-radius: 6px;
+        transform: translateX(110%);
+        transition: transform 0.5s ease-out;
+    }
+    .nav-button{
+        margin: 0px;
+        opacity: 0;
+    }
+    .sideRight{
+        width:40px;
+    }
+    .hamburger{
+        display: block;
+    }
+}
+
+.nav-active{
+    transform: translate(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity:0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+
+.toggle .line2{
+    opacity:0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
 /*PAGE CONTENT*/
 
 .container{
@@ -101,6 +181,7 @@ body{
 }
 
 .card{
+    position:static;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,7 +189,6 @@ body{
     border-radius: 30px;
     background: rgba(243, 243, 243, 0.7);
 	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
     padding: 15px;
     padding-bottom:5px;
 }
