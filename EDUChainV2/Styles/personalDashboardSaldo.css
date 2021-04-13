@@ -130,7 +130,6 @@ body{
         flex-flow: column;
         border-radius: 6px;
         transform: translateX(115%);
-        transition: transform 0.5s ease-out;
     }
     .nav-button{
         margin: 0px;
