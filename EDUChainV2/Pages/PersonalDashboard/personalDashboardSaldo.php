@@ -8,7 +8,7 @@
     <title>Login & Register</title>
 </head>
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div class="sideLeft">
             <img class="logo" src="../../Images/EduchainLogo-BlackV.png" alt="Logo">
             <div class="nav-text">EDUChain</div>
