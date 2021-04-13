@@ -17,37 +17,37 @@
             <ul class="nav-links">
             <li>
                     <a class="nav-button" href="#">
-                        <img class="icon" src="../../Images/dog-house-2white.png" alt="Home">
+                        <img class="icon" src="../../Images/EduchainLogo.png" alt="Saldo">
                         <div>Saldo</div>
                     </a>     
                 </li>
                 <li>
                     <a class="nav-button" href="#">
-                        <img class="icon" src="../../Images/login-3white.png" alt="Accedi">
+                        <img class="icon" src="../../Images/send-email-1-white.png" alt="Invia">
                         <div>Invia</div>
                     </a>    
                 </li>
                 <li>
                     <a class="nav-button" href="#">
-                        <img class="icon" src="../../Images/login-3white.png" alt="Accedi">
+                        <img class="icon" src="../../Images/email-action-receive-white.png" alt="Ricevi">
                         <div>Ricevi</div>
                     </a>    
                 </li>
                 <li>
                     <a class="nav-button" href="#">
-                        <img class="icon" src="../../Images/login-3white.png" alt="Accedi">
+                        <img class="icon" src="../../Images/style-two-pin-add-white.png" alt="Genera">
                         <div>Genera</div>
                     </a>    
                 </li>
                 <li>
                     <a class="nav-button" href="#">
-                        <img class="icon" src="../../Images/login-3white.png" alt="Accedi">
+                        <img class="icon" src="../../Images/style-two-pin-minus-white.png" alt="Ritira">
                         <div>Ritira</div>
                     </a>    
                 </li>
                 <li>
                     <a class="nav-button" href="#">
-                        <img class="icon" src="../../Images/login-3white.png" alt="Accedi">
+                        <img class="icon" src="../../Images/app-window-four-white.png" alt="Blockchain">
                         <div>Blockchain</div>
                     </a>    
                 </li>
