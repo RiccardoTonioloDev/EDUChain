@@ -59,6 +59,27 @@
             </div>
         </div>
     </div>
+    <div class="pageContainer">
+        <div class="upperPart">
+            <div class="headerSaldo">
+                Il tuo saldo è di:
+            </div>
+            <div class="saldoCard">
+                <div class="saldoCard-saldo">
+                    <div class="saldo">
+                        29
+                    </div>
+                    <img class="saldo-icon" src="../../Images/EduchainLogo-BlackV.png" alt="Currency">
+                </div>
+                <form action="../elaborazioneRichieste.php" method="POST" class="saldoCard-buttons">
+                    <input class="button-form" type="submit" name="refresh" value="Aggiorna">
+                </form>
+            </div>
+        </div>
+        <div class="lowerPart">
+        
+        </div>
+    </div>
     <script>
         const navSlide = () =>{
             const burger = document.querySelector('.hamburger');

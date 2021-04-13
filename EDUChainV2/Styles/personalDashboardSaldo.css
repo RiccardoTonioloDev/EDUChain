@@ -168,3 +168,104 @@ body{
 .toggle .line3{
     transform: rotate(45deg) translate(-5px,-6px);
 }
+
+/*PageContainer*/
+.pageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    width:96vw;
+}
+
+.upperPart{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row;
+    width:100%;
+}
+
+.headerSaldo{
+    font-size: 8vw;
+    font-weight: bold;
+}
+
+.saldoCard{
+    background: rgba(255, 255, 255, .7);
+    padding: 10px;
+    width:20vw;
+    border-radius: 15px;
+}
+
+.saldoCard-saldo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+    margin-bottom: 5px;
+}
+
+.saldo{
+    font-size: 6vw;
+    margin-left: 5px;
+}
+
+.saldo-icon{
+    max-width: 4vw;
+    max-height: 4vw;
+}
+
+.saldoCard-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+}
+
+.button-form{
+  font-family: Comfortaa;
+  width: 200px;
+  height: 45px;
+  font-size: 2vw;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  color: rgb(58, 58, 255);
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-form:hover {
+    background-color: rgb(88, 88, 255);
+    box-shadow: 0px 10px 15px rgb(58, 58, 255);
+    color: #fff;
+}
+
+/*MOBILE PART*/
+
+@media screen and (max-width:500px){
+    .upperPart{
+        flex-flow: column;
+    }
+    
+    .saldo{
+        font-size: 8vw;
+    }
+    
+    .saldo-icon{
+        max-width: 6vw;
+        max-height: 6vw;
+    }
+    .button-form{
+        font-size: 3vw;
+    }
+    .saldoCard{
+        width:30vw;
+    }
+}
