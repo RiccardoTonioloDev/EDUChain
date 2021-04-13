@@ -27,7 +27,6 @@
                         <div>Accedi</div>
                     </a>    
                 </li>
-                <li>
             </ul>
             <div class="hamburger">
                 <div class="line1"></div>
