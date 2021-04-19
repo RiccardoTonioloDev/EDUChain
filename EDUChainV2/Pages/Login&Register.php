@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class='cardButtons'>
-                    <input class='typeSubmit' type='submit' name='Login' value='Invia'>
+                    <button class='button-form' type='submit' name='Login' value='Invia'>Invia</button>
                     <div class='trigger' onclick='changeCard()'>Non hai ancora l'account? Clicca qui!</div>
                 </div>
             </form>
@@ -76,7 +76,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class='cardButtons'>
-                                                                        <input class='typeSubmit' type='submit' name='Login' value='Invia'>
+                                                                        <input class='button-form' type='submit' name='Login' value='Invia'>
                                                                         <div class='trigger' onclick='changeCard()'>Non hai ancora l'account? Clicca qui!</div>
                                                                     </div>
                                                                 </form>`;
@@ -100,7 +100,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class='cardButtons'>
-                                                                        <input class='typeSubmit' type='submit' name='Login' value='Invia'>
+                                                                        <input class='button-form' type='submit' name='Login' value='Invia'>
                                                                         <div class='trigger' onclick='changeCard()'>Hai già un account? Accedi qui!</div>
                                                                     </div>
                                                                 </form>`;

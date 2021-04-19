@@ -76,15 +76,178 @@
                 </form>
             </div>
         </div>
+        <div class="devider"></div>
         <div class="lowerPart">
             <div class="header-transazioni">Transazioni:</div>
             <div class="scrollable-card">
-                <div class="transaction">
+            <div class="transaction">
                     <div class="leftTransaction">
-                        <div class="status">Received</div>
+                        <div class="status">Received:</div>
                         <div class="transactionAmount">
                             <div class="amount">29</div>
-                            <img src="../../Images/EduchainLogo-BlackV.png" class="icon">
+                            <img src="../../Images/EduchainLogo-BlackV.png" class="currency">
+                        </div>
+                    </div>
+                    <div class="rightTransaction">
+                        <div class="peer">
+                            <div class="peerHeader">
+                                From:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                        <div class="peer">
+                            <div class="peerHeader">
+                            To:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction">
+                    <div class="leftTransaction">
+                        <div class="status">Received:</div>
+                        <div class="transactionAmount">
+                            <div class="amount">29</div>
+                            <img src="../../Images/EduchainLogo-BlackV.png" class="currency">
+                        </div>
+                    </div>
+                    <div class="rightTransaction">
+                        <div class="peer">
+                            <div class="peerHeader">
+                                From:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                        <div class="peer">
+                            <div class="peerHeader">
+                            To:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction">
+                    <div class="leftTransaction">
+                        <div class="status">Received:</div>
+                        <div class="transactionAmount">
+                            <div class="amount">29</div>
+                            <img src="../../Images/EduchainLogo-BlackV.png" class="currency">
+                        </div>
+                    </div>
+                    <div class="rightTransaction">
+                        <div class="peer">
+                            <div class="peerHeader">
+                                From:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                        <div class="peer">
+                            <div class="peerHeader">
+                            To:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction">
+                    <div class="leftTransaction">
+                        <div class="status">Received:</div>
+                        <div class="transactionAmount">
+                            <div class="amount">29</div>
+                            <img src="../../Images/EduchainLogo-BlackV.png" class="currency">
+                        </div>
+                    </div>
+                    <div class="rightTransaction">
+                        <div class="peer">
+                            <div class="peerHeader">
+                                From:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                        <div class="peer">
+                            <div class="peerHeader">
+                            To:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction">
+                    <div class="leftTransaction">
+                        <div class="status">Received:</div>
+                        <div class="transactionAmount">
+                            <div class="amount">29</div>
+                            <img src="../../Images/EduchainLogo-BlackV.png" class="currency">
+                        </div>
+                    </div>
+                    <div class="rightTransaction">
+                        <div class="peer">
+                            <div class="peerHeader">
+                                From:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                        <div class="peer">
+                            <div class="peerHeader">
+                            To:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction">
+                    <div class="leftTransaction">
+                        <div class="status">Received:</div>
+                        <div class="transactionAmount">
+                            <div class="amount">29</div>
+                            <img src="../../Images/EduchainLogo-BlackV.png" class="currency">
+                        </div>
+                    </div>
+                    <div class="rightTransaction">
+                        <div class="peer">
+                            <div class="peerHeader">
+                                From:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                        <div class="peer">
+                            <div class="peerHeader">
+                            To:
+                            </div>
+                            <div class="key">
+                                chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction">
+                    <div class="leftTransaction">
+                        <div class="status">Received:</div>
+                        <div class="transactionAmount">
+                            <div class="amount">29</div>
+                            <img src="../../Images/EduchainLogo-BlackV.png" class="currency">
                         </div>
                     </div>
                     <div class="rightTransaction">

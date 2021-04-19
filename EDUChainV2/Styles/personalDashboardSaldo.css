@@ -270,6 +270,13 @@ body{
     }
 }
 
+.devider{
+    width:85%;
+    height: 2px;
+    background-color: beige;
+    margin: 20px 0px 20px;
+}
+
 /*LOWER PART*/
 .lowerPart{
     margin-top: 20px;
@@ -286,12 +293,12 @@ body{
 
 .scrollable-card{
     width:100%;
-    height:500px;
+    max-height: 500px;
     background: #edc0bf;
     background: linear-gradient(90deg, #c4caef 0,#edc0bf 58%);
     margin-bottom: 10vh;
     border-radius: 15px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
@@ -299,9 +306,9 @@ body{
     width:95%;
     padding-left: 1%;
     padding-right: 1%;
-    height: 110px;
+    height: auto;
     background-color: rgb(166, 166, 255);
-    margin:10px auto 20px auto;
+    margin:15px auto 25px auto;
     border-radius: 15px;
     display: flex;
     flex-flow: row;
@@ -318,18 +325,19 @@ body{
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
-    width:40%;
+    width:55%;
     padding-right:20px;
 }
 
 .peer{
-    width:10vw;
+    width:40%;
     padding:10px;
     border-radius: 10px;
     background-color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin: 15px 0px 15px 0px;
 }
 
 .peerHeader{
@@ -337,7 +345,7 @@ body{
 }
 
 .key{
-    width:10vw;
+    width:100%;
     overflow-x: auto;
 }
 
@@ -353,10 +361,30 @@ body{
 .amount{
     font-size: 6vw;
 }
+.currency{
+    width: 4vw;
+    height: auto;
+}
 
 .transactionAmount{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row;
+}
+
+@media screen and (min-width:750px){
+    .leftTransaction{
+        flex-flow: row;
+        width:35%;
+        justify-content: space-between;
+    }
+
+    .amount{
+        font-size: 4vw;
+    }
+    .currency{
+        width: 3vw;
+        height: auto;
+    }
 }
