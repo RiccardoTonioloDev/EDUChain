@@ -40,7 +40,7 @@ function userComboBox(){
     $result = $conn->query($SQLquery);
     $conn -> close();
     $rows = mysqli_fetch_all($result);
-    echo "<select name='nome' class='selectionUtenti'>";
+    echo "<select name='nome' class='selectionUtenti' required>";
     foreach ($rows as $key => $value) {
         echo "<option value='".$value[0]."'>".$value[0]."</option>";
     }

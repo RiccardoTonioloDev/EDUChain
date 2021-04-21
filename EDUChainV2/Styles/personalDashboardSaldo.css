@@ -378,6 +378,9 @@ body{
         justify-content: space-between;
     }
 
+    .peerHeader{
+        font-size: 2vw;
+    }
     .amount{
         font-size: 4vw;
     }

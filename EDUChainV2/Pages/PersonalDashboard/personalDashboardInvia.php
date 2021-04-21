@@ -71,23 +71,24 @@
             </div>
         </div>
         <div class="form-card">
-            <div class="action-box" id="actionBox">
-                <div class="question">Scrivi a chi vuoi mandare monete EDU:</div>
-                <input type="text" name="nome" class="typeText" required>
-            </div>
             <form class="send-form" action="../elaborazioneRichieste.php" method="post">
+                <div class="action-box" id="actionBox">
+                    <div class="question">Scrivi a chi vuoi mandare monete EDU:</div>
+                    <input type="text" name="nome" class="typeText" required>
+                </div>
                 <div class="question">Quantità:</div>
                 <div class="amount">
                     <input class="typeText" type="number" name="quantity" required>
                     <img src="../../Images/EduchainLogo-BlackV.png" alt="Currency" class="currency">
                 </div>
+                <button type="submit" class="button-form-send">Invia</button>
             </form>
         </div>
     </div>
 
     <script>
         function findName(){
-            document.getElementById("actionBox").innerHTML = "<div class='question'>Scrivi a chi vuoi mandare monete EDU:</div><?php userComboBox() ?>";
+            document.getElementById("actionBox").innerHTML = "<div class='question'>Seleziona l'utente a cui vuoi mandare monete EDU:</div><?php userComboBox() ?>";
         }
         function typeName(){
             document.getElementById("actionBox").innerHTML = "<div class='question'>Scrivi a chi vuoi mandare monete EDU:</div>\
