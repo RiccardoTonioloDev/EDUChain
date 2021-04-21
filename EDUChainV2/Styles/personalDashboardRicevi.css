@@ -238,7 +238,7 @@ body{
 .actionContainer-name, .actionContainer-key{
     display: flex;
     flex-flow: row;
-    align: center;
+    align-items: center;
     justify-content: space-between;
     width:100%;
 }
