@@ -266,6 +266,9 @@ body{
     .saldoCard{
         width:30vw;
     }
+    .headerSaldo{
+        margin-bottom: 10px;
+    }
 }
 
 .devider{
@@ -387,5 +390,14 @@ body{
     .currency{
         width: 3vw;
         height: auto;
+    }
+
+    .headerSaldo{
+        font-size: 6vw;
+        font-weight: 600;
+    }
+
+    .upperPart{
+        justify-content: space-evenly;
     }
 }
