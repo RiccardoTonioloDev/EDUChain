@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION["username"])){
+    //L'utente ha già effettuato il login poichè in sessione i suoi dati esistono già
+    echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -36,6 +43,24 @@
         </div>
     </div>
     <div class='container'>
+        <?php
+            if(isset($_SESSION["registrationDone"]) and $_SESSION["registrationDone"]===1){
+                $_SESSION["registrationDone"] = 0;
+                echo "<div style='background-color:green;color:white;' class='intestazione-alert'>Accedi con le credenziali appena create!</div>";
+            }
+            if(isset($_SESSION["errorType"])){
+                switch($_SESSION["errorType"]){
+                    case 1:
+                        $_SESSION["errorType"] = 0;
+                        echo "<div class='intestazione-alert'>Credenziali errate!</div>";
+                        break;
+                    case 5:
+                        $_SESSION["errorType"] = 0;
+                        echo "<div class='intestazione-alert'>Prima devi effettuare il login!</div>";
+                        break;
+                }
+            }
+        ?>
         <div class='card' id='card'>
             <div class='cardHeader' id="formType" value='Accedi'>
                 Accedi
@@ -100,7 +125,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class='cardButtons'>
-                                                                        <input class='button-form' type='submit' name='Login' value='Invia'>
+                                                                        <input class='button-form' type='submit' name='Registrazione' value='Invia'>
                                                                         <div class='trigger' onclick='changeCard()'>Hai già un account? Accedi qui!</div>
                                                                     </div>
                                                                 </form>`;

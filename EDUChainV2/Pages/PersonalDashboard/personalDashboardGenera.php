@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Styles/personalDashboardGenera.css">
+    <link rel="stylesheet" href="../../Styles/sharedNavbar.css">
     <title>Document</title>
 </head>
 <body>
@@ -50,6 +51,13 @@
                         <img class="icon" src="../../Images/app-window-four-white.png" alt="Blockchain">
                         <div>Blockchain</div>
                     </a>    
+                </li>
+                <li><form action="../elaborazioneRichieste.php" method="post">
+                    <button name="logout" type="submit" value="logout" class="nav-button" href="personalDashboardBlockchain.php">
+                        <img class="icon" src="../../Images/logout-3white.png" alt="Blockchain">
+                        <div>Logout</div>
+                        </button>    
+                    </form>
                 </li>
             </ul>
             <div class="hamburger">

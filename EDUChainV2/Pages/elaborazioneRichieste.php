@@ -6,7 +6,7 @@ include("funzioni.php");
         $user = findUser($_POST["UserID"],$_POST["Password"]);
         if($user["count(*)"]==0){
             //Utente non trovato, credenziali di accesso sbagliate
-            errorHandlingSorter(1,"index.php");
+            errorHandlingSorter(1,"Login&Register.php");
         }else{
             $_SESSION["username"] = $_POST["UserID"];
             $_SESSION["password"] = $_POST["Password"];
@@ -23,7 +23,7 @@ include("funzioni.php");
         }else{
             if(!addNewUser($_POST["UserID"],$_POST["Password1"])===TRUE){
                 $_SESSION["registrationDone"] = 1;
-                echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+                echo "<script type='text/javascript'> document.location = 'Login&Register.php'; </script>";
                 exit;
             }else{
                 //Esiste già un account con quel nome
@@ -34,7 +34,7 @@ include("funzioni.php");
     }
     if(isset($_POST["logout"]) and $_POST["logout"]==="logout"){
         logOut();
-        echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+        echo "<script type='text/javascript'> document.location = 'Login&Register.php'; </script>";
     }
     if(isset($_POST["genera"]) and $_POST["genera"]==="Genera"){
         if($_POST["quantity"]>=0){
