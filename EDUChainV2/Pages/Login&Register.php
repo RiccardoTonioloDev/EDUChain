@@ -40,7 +40,7 @@
             <div class='cardHeader' id="formType" value='Accedi'>
                 Accedi
             </div>
-            <form action='' method='post'>
+            <form action='elaborazioneRichieste.php' method='post'>
                 <div class='cardContent'>
                     <div class='username'>
                         <div class='formTitle'>Username:</div>
@@ -64,7 +64,7 @@
                 document.getElementById("card").innerHTML = `<div class='cardHeader' id='formType' value='Accedi'>
                                                                     Accedi
                                                                 </div>
-                                                                <form action='' method='post'>
+                                                                <form action='elaborazioneRichieste.php' method='post'>
                                                                     <div class='cardContent'>
                                                                         <div class='username'>
                                                                             <div class='formTitle'>Username:</div>
@@ -84,7 +84,7 @@
                 document.getElementById("card").innerHTML = `<div class='cardHeader' id='formType' value='Registrati'>
                                                                     Registrati
                                                                 </div>
-                                                                <form action='' method='post'>
+                                                                <form action='elaborazioneRichieste.php' method='post'>
                                                                     <div class='cardContent'>
                                                                         <div class='username'>
                                                                             <div class='formTitle'>Username:</div>

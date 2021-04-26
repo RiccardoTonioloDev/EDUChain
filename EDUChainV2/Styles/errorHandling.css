@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../Fonts/Comfortaa-VariableFont_wght.ttf');
+}
+
+body{
+    background: #edc0bf;
+    background: linear-gradient(90deg, #edc0bf 0,#c4caef 58%);
+    font-family: 'Comfortaa', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow:column;
+    width:100%;
+    height: 100vh;
+}
+
+.intestazione{
+    position:absolute;
+    top:20px;
+    left:auto;
+    font-size: 2em;
+    font-weight: 700;
+    max-width: 90vw;
+    text-align: center;
+}
+
+.error-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow:column;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 15px;
+    padding:15px;
+    margin-top: 15px;
+}
+
+.titoloErrore{
+    font-size: 1.7em;
+    font-weight: 630;
+    max-width: 360px;
+    text-align: center;
+}
+
+.corpoErrore{
+    font-size: 1.2em;
+    max-width: 360px;
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+}
+
+.resolve-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color:white;
+    padding:10px;
+    border-radius: 999px;
+    background-color: rgb(58, 58, 255);
+    font-family: Comfortaa;
+    border: 1px solid rgba(255, 255, 255, .7);
+}
+
+.resolve-button:hover{
+    background-color: rgb(83, 83, 255);
+    border:1px solid rgb(58, 58, 255);
+}
