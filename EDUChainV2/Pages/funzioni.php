@@ -334,7 +334,7 @@ function TransactionToBeShown($status,$amount,$mittente,$destinatario){
                                     From:
                                 </div>
                                 <div class='key'>
-                                    ".$mittente."
+                                    ".str_replace(array("-----END PUBLIC KEY--","-----BEGIN PUBLIC KEY-----","\r","\n"),"",$mittente)."
                                 </div>
                             </div>
                             <div class='peer'>
@@ -342,7 +342,7 @@ function TransactionToBeShown($status,$amount,$mittente,$destinatario){
                                 To:
                                 </div>
                                 <div class='key'>
-                                    ".$destinatario."
+                                    ".str_replace(array("-----END PUBLIC KEY--","-----BEGIN PUBLIC KEY-----","\r","\n"),"",$destinatario)."
                                 </div>
                             </div>
                         </div>
