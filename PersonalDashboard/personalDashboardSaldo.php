@@ -29,7 +29,7 @@
         <div class="saldo-show">
             <div>
             <?php
-                echo $_SESSION["importo"]
+                echo $_SESSION["importo"];
             ?>
             </div>
             <img src="../Logo/EduchainLogo-BlackV.png" alt="€" class="currency">

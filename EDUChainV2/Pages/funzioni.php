@@ -67,7 +67,7 @@ function startPersonalDashboard(){
     session_start();
     if(!isset($_SESSION["username"])){
         //Utente tenta di accedere alla dashboard senza login
-        errorHandlingSorter(5,"../index.php");
+        errorHandlingSorter(5,"../Login&Register.php");
     }
 }
 
@@ -310,6 +310,68 @@ function totalAmount(){
                         }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {
                             $total-=$blocco["Transazioni"][$i]["Importo"];
                             $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return $total;
+}
+
+function TransactionToBeShown($status,$amount,$mittente,$destinatario){
+    $transaction = "<div class='transaction'>
+                        <div class='leftTransaction'>
+                            <div class='status'>".$status."</div>
+                            <div class='transactionAmount'>
+                                <div class='amount'>".$amount."</div>
+                                <img src='../../Images/EduchainLogo-BlackV.png' class='currency'>
+                            </div>
+                        </div>
+                        <div class='rightTransaction'>
+                            <div class='peer'>
+                                <div class='peerHeader'>
+                                    From:
+                                </div>
+                                <div class='key'>
+                                    ".$mittente."
+                                </div>
+                            </div>
+                            <div class='peer'>
+                                <div class='peerHeader'>
+                                To:
+                                </div>
+                                <div class='key'>
+                                    ".$destinatario."
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+    echo $transaction;
+}
+
+function showTransaction(){
+    $total = 0;
+    if(file_exists("../blockchain.json")){
+        if(filesize("../blockchain.json")){
+            $blockchainArray = file_get_contents("../blockchain.json");
+            $blockchainArray = json_decode($blockchainArray,TRUE);
+            $hashedSeen = array();
+            foreach ($blockchainArray as $numBlocco => $blocco) {
+                for ($i=0; $i < count($blocco["Transazioni"]); $i++) { 
+                    if(verifyTransaction($blocco["Transazioni"][$i]) and !in_array(hash("sha256",serialize($blocco["Transazioni"][$i])),$hashedSeen)){
+                        if($blocco["Transazioni"][$i]["Destinatario"]===$blocco["Transazioni"][$i]["Mittente"]){
+                            $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                            TransactionToBeShown("NULL:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"]);
+                        }elseif($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
+                            $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                            $total+=$blocco["Transazioni"][$i]["Importo"];
+                            TransactionToBeShown("Received:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"]);
+                        }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {
+                            $total-=$blocco["Transazioni"][$i]["Importo"];
+                            print_r($blocco);
+                            $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
+                            TransactionToBeShown("Sent:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"]);
                         }
                     }
                 }

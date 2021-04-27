@@ -1,3 +1,7 @@
+<?php
+    include("../funzioni.php");
+    startPersonalDashboard();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

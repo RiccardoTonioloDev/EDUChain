@@ -1,6 +1,8 @@
 <?php
     include("../funzioni.php");
+    startPersonalDashboard();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +91,7 @@
                     <input class="typeText" type="number" name="quantity" required>
                     <img src="../../Images/EduchainLogo-BlackV.png" alt="Currency" class="currency">
                 </div>
-                <button type="submit" class="button-form-send">Invia</button>
+                <button name="invia-transaction" value="Invia" type="submit" class="button-form-send">Invia</button>
             </form>
         </div>
     </div>

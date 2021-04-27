@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("funzioni.php");
+print_r($_POST);
 
     if(isset($_POST["Login"]) and $_POST["Login"]==="Invia"){
         $user = findUser($_POST["UserID"],$_POST["Password"]);
@@ -65,7 +66,7 @@ include("funzioni.php");
             errorHandlingSorter(7,"errorHandling.php");
         }
     }
-    if(isset($_POST["invia-transaction"]) and $_POST["invia-transaction"]==="invia"){
+    if(isset($_POST["invia-transaction"]) and $_POST["invia-transaction"]==="Invia"){
         $conn = mysqliConnectorCreator();
         if(CheckUserExist($conn,$_POST["nome"])){
             $conn->close();
