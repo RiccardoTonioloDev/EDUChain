@@ -347,14 +347,15 @@ function TransactionToBeShown($status,$amount,$mittente,$destinatario){
                             </div>
                         </div>
                     </div>";
-    echo $transaction;
+    return $transaction;
 }
 
 function showTransaction(){
     $total = 0;
-    if(file_exists("../blockchain.json")){
-        if(filesize("../blockchain.json")){
-            $blockchainArray = file_get_contents("../blockchain.json");
+    $totTransazioni = "";
+    if(file_exists("blockchain.json")){
+        if(filesize("blockchain.json")){
+            $blockchainArray = file_get_contents("blockchain.json");
             $blockchainArray = json_decode($blockchainArray,TRUE);
             $hashedSeen = array();
             foreach ($blockchainArray as $numBlocco => $blocco) {
@@ -362,23 +363,22 @@ function showTransaction(){
                     if(verifyTransaction($blocco["Transazioni"][$i]) and !in_array(hash("sha256",serialize($blocco["Transazioni"][$i])),$hashedSeen)){
                         if($blocco["Transazioni"][$i]["Destinatario"]===$blocco["Transazioni"][$i]["Mittente"]){
                             $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
-                            TransactionToBeShown("NULL:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"]);
+                            $totTransazioni = TransactionToBeShown("NULL:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"])."".$totTransazioni;
                         }elseif($blocco["Transazioni"][$i]["Destinatario"]===$_SESSION["pubkey"]){
                             $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
                             $total+=$blocco["Transazioni"][$i]["Importo"];
-                            TransactionToBeShown("Received:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"]);
+                            $totTransazioni = TransactionToBeShown("Received:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"])."".$totTransazioni;
                         }elseif ($blocco["Transazioni"][$i]["Mittente"]===$_SESSION["pubkey"]) {
                             $total-=$blocco["Transazioni"][$i]["Importo"];
-                            print_r($blocco);
                             $hashedSeen[] = hash("sha256",serialize($blocco["Transazioni"][$i]));
-                            TransactionToBeShown("Sent:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"]);
+                            $totTransazioni = TransactionToBeShown("Sent:",$blocco["Transazioni"][$i]["Importo"],$blocco["Transazioni"][$i]["Mittente"],$blocco["Transazioni"][$i]["Destinatario"])."".$totTransazioni;
                         }
                     }
                 }
             }
         }
     }
-    return $total;
+    return $totTransazioni;
 }
 
 function circulatingSupply(){

@@ -286,7 +286,7 @@
             </div>-->
             <div class="scrollable-card">
                 <?php 
-                    showTransaction();
+                    echo $_SESSION["transazioni"];
                 ?>
             </div>
         </div>

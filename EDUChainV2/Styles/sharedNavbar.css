@@ -3,6 +3,28 @@
     src: url('../Fonts/Comfortaa-VariableFont_wght.ttf');
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(81, 81, 255); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(43, 43, 189); 
+  }
+
 body{
     background: #edc0bf;
     background: linear-gradient(90deg, #edc0bf 0,#c4caef 58%);

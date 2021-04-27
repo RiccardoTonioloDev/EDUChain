@@ -41,6 +41,7 @@ print_r($_POST);
         if($_POST["quantity"]>=0){
             addMoneyGenerated($_POST["quantity"]);
             $_SESSION["importo"] = totalAmount();
+            $_SESSION["transazioni"] = showTransaction();
             echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
         }else{
             // si aggiunge al saldo un numero negativo di soldi
@@ -49,6 +50,7 @@ print_r($_POST);
     }
     if(isset($_POST["refresh"]) and $_POST["refresh"]==="Aggiorna"){
         $_SESSION["importo"] = totalAmount();
+        $_SESSION["transazioni"] = showTransaction();
         echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
     }
     if(isset($_POST["ritira"]) and $_POST["ritira"]==="Ritira"){
@@ -56,6 +58,7 @@ print_r($_POST);
             if($_POST["quantity"]>=0){
                 deleteMoney($_POST["quantity"]);
                 $_SESSION["importo"] = totalAmount();
+                $_SESSION["transazioni"] = showTransaction();
                 echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
             }else{
                 // si rimuove dal saldo un numero negativo di soldi
@@ -74,6 +77,7 @@ print_r($_POST);
                 if($_POST["quantity"]>=0){
                     addTransaction(pubkeyUsernameGiven($_POST["nome"]),$_POST["quantity"]);
                     $_SESSION["importo"] = totalAmount();
+                    $_SESSION["transazioni"] = showTransaction();
                     echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
                 }else{
                     // si rimuove dal saldo un numero negativo di soldi
