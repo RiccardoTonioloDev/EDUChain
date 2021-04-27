@@ -71,7 +71,13 @@
             </div>
         </div>
     </div>
-    
+    <?php
+    if(verifyBlockchain()){
+        printBlockchain();
+    }else{
+        echo "Non valida";
+    }
+?>
     <script>
         const navSlide = () =>{
             const burger = document.querySelector('.hamburger');

@@ -82,14 +82,14 @@
             <div class="actionContainer-name">
                 <div class="info-name">
                     <div class="info-title">Il tuo nome utente:</div>
-                    <div class="username" id="username">NomeAccount</div>
+                    <div class="username" id="username"><?php echo $_SESSION["username"] ?></div>
                 </div>
                 <div class="backgroundButton"><img class="copyButton" onclick="copyDivToClipboard('username')" src="../../Images/notes-list.png" alt="Copy to clipboard"></div>
             </div>
             <div class="actionContainer-key">
                 <div class="info-key">
                     <div class="info-title">La tua chiave pubblica:</div>
-                    <div class="key" id="key">chiavechiavechiavechiavechiavechiavechiavechiavechiavechiavechiave</div>
+                    <div class="key" id="key"><?php echo str_replace(array("-----END PUBLIC KEY--","-----BEGIN PUBLIC KEY-----","\r","\n"),"",$_SESSION["pubkey"]) ?></div>
                 </div>
                 <div class="backgroundButton"><img class="copyButton" onclick="copyDivToClipboard('key')" src="../../Images/notes-list.png" alt="Copy to clipboard"></div>
             </div>

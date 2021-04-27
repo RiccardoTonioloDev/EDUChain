@@ -473,27 +473,27 @@ function printBlockchain(){
     $blockchainArray = json_decode($file,TRUE);
     foreach ($blockchainArray as $numBlocco => $blocco) {
         echo "<div class='blocco' id='blocco".($numBlocco+1)."'>";
-        echo "<h2>Blocco: #".($numBlocco+1)."</h2>";
+        echo "<div class='block-title'>Blocco: #".($numBlocco+1)."</div>";
         foreach ($blocco["Transazioni"] as $numeroTransazione => $transazione) {
             echo "<div class='transazione' id='transazione".($numeroTransazione+1)."'>";
-            echo "<h2>Transazione: #".($numeroTransazione+1)."</h2>";
-            echo "<div class='mittente'>
-                    <div class='header'>Mittente:</div><div>".$transazione["Mittente"]."</div>
-                </div>";
-            echo "<div class='destinatario'>
-                    <div class='header'>Destinatario:</div><div>".$transazione["Destinatario"]."</div>
-                </div>";
-            echo "<div class='importo'>
-                    <div class='header'>Importo:</div><div>".$transazione["Importo"]."</div>
-                </div>";
-            echo "<div class='data'>
-                    <div class='header'>Data:</div><div>".date('m/d/Y', $transazione["Timestamp"])."</div>
-                </div>";
-            if(isset($transazione["Hash firmato"])){
-                echo "<div class='hashFirmato'>
-                    <div class='header'>Hash firmato:</div><div>".$transazione["Hash firmato"]."</div>
-                </div>";
-            }
+                echo "<div class='transaction-title'>Transazione: #".($numeroTransazione+1)."</div>";
+                echo "<div class='mittente'>
+                        <div class='header'>Mittente:</div><div>".$transazione["Mittente"]."</div>
+                    </div>";
+                echo "<div class='destinatario'>
+                        <div class='header'>Destinatario:</div><div>".$transazione["Destinatario"]."</div>
+                    </div>";
+                echo "<div class='importo'>
+                        <div class='header'>Importo:</div><div>".$transazione["Importo"]."</div>
+                    </div>";
+                echo "<div class='data'>
+                        <div class='header'>Data:</div><div>".date('m/d/Y', $transazione["Timestamp"])."</div>
+                    </div>";
+                if(isset($transazione["Hash firmato"])){
+                    echo "<div class='hashFirmato'>
+                        <div class='header'>Hash firmato:</div><div>".$transazione["Hash firmato"]."</div>
+                    </div>";
+                }
             echo "</div>";
         }
         echo "<div  class='hash'>
