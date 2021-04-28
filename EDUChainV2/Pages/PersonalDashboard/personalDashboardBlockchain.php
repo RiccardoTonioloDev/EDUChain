@@ -71,13 +71,15 @@
             </div>
         </div>
     </div>
-    <?php
-    if(verifyBlockchain()){
-        printBlockchain();
-    }else{
-        echo "Non valida";
-    }
-?>
+    <div class="blockchain-part">
+        <?php
+            if(verifyBlockchain()){
+                printBlockchain();
+            }else{
+                echo "Non valida";
+            }
+        ?>
+    </div>
     <script>
         const navSlide = () =>{
             const burger = document.querySelector('.hamburger');

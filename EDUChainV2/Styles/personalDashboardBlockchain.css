@@ -1,0 +1,66 @@
+.blockchain-part{
+    width:auto;
+    max-height:500px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    margin-top: 30px;
+    background: #edc0bf;
+    background: linear-gradient(90deg, #c4caef 0,#edc0bf 58%);
+    padding:20px;
+    border-radius: 15px;
+}
+
+.blocco{
+    width:auto;
+    height: auto;
+    background-color: rgb(219, 238, 255);
+    margin:10px;
+    padding:15px;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.block-title{
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.transaction-title{
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.header{
+    font-size: .9em;
+    font-weight: 600;
+}
+
+.content{
+    font-weight: 400;
+    font-style: italic;
+}
+
+.transazione{
+    margin:5px;
+    padding:5px;
+    background: rgb(251, 209, 255);
+    border-radius: 15px;
+}
+
+.information{
+    padding:5px;
+    margin:5px;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 10px;
+}
+
+.mittente .content, .destinatario .content, .hashFirmato .content{
+    max-width:300px;
+    height:auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}

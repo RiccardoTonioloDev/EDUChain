@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("funzioni.php");
-print_r($_POST);
 
     if(isset($_POST["Login"]) and $_POST["Login"]==="Invia"){
         $user = findUser($_POST["UserID"],$_POST["Password"]);
@@ -14,6 +13,7 @@ print_r($_POST);
             $_SESSION["pubkey"] = $user["ChiavePubblica"];
             $_SESSION["privkey"] = $user["ChiavePrivata"];
             $_SESSION["importo"] = totalAmount();
+            $_SESSION["transazioni"] = showTransaction();
             echo "<script type='text/javascript'> document.location = 'PersonalDashboard/personalDashboardSaldo.php'; </script>";
         }
     }
