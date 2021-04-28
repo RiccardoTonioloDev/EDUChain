@@ -93,5 +93,7 @@ include("funzioni.php");
             errorHandlingSorter(9,"errorHandling.php");
         }
         
+    }else{
+        echo "<script type='text/javascript'> document.location = 'Login&Register.php'; </script>";
     }
 ?>

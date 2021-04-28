@@ -1,5 +1,5 @@
 .blockchain-part{
-    width:auto;
+    width:400px;
     max-height:500px;
     overflow-y: scroll;
     overflow-x:hidden;
@@ -7,20 +7,21 @@
     background: #edc0bf;
     background: linear-gradient(90deg, #c4caef 0,#edc0bf 58%);
     padding:20px;
+    padding-right: 40px;
     border-radius: 15px;
 }
 
 .blocco{
-    width:auto;
+    width:392px;
     height: auto;
     background-color: rgb(219, 238, 255);
-    margin:10px;
     padding:15px;
     border-radius: 15px;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    margin:10px 0 10px 0;
 }
 
 .block-title{
@@ -58,9 +59,81 @@
     border-radius: 10px;
 }
 
-.mittente .content, .destinatario .content, .hashFirmato .content{
-    max-width:300px;
+.information-block{
+    padding:5px;
+    margin:5px;
+    background: rgb(253, 255, 151);
+    border-radius: 10px;
+}
+
+.mittente .content, .destinatario .content, .hashFirmato .content, .information-block .content{
+    max-width:360px;
     height:auto;
     overflow-x: auto;
     overflow-y: hidden;
+}
+
+.headerPage{
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.disclaimer{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 500;
+    color:rgb(0, 0, 0);
+}
+
+.status-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    width: auto;
+    height:auto;
+    padding:10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .7);
+    margin-top: 20px;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.status-ok{
+    background-color: rgb(116, 255, 116);
+}
+
+.status-corrupted{
+    background-color: rgb(255, 0, 0);
+}
+
+.upper-status-part{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+    font-size: 1.2em;
+}
+
+.lower-status-part{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+}
+
+.status{
+    margin-left: 5px;
+}
+
+.corrupted-block-number{
+    margin-left: 5px;
 }

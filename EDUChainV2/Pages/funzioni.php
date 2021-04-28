@@ -445,6 +445,7 @@ function verifyBlockchain(){
                 }else{
                     if($blocco["hashPrecedente"]!==hash("sha256",serialize($blockchainArray[$counter-1]))){
                         $isNotCorrupted = false;
+                        $_SESSION["CorruptedBlock"] = $counter;
                     }
                 }
                 $counter++;
@@ -457,6 +458,18 @@ function verifyBlockchain(){
     }
     return $isNotCorrupted;
 }
+
+function printStatusBlockchain(){
+    if(verifyBlockchain()){
+        echo "<div class='status'>OK</div>
+                <div class='status-dot status-ok'></div>";
+    }else{
+        echo "<div class='status'>Corrupted</div>
+                <div class='status-dot status-corrupted'></div>";
+    }
+}
+
+
 
 function verifyFile(){
     if(!file_exists("blockchain.json")){
@@ -498,9 +511,9 @@ function printBlockchain(){
                         }
                     echo "</div>";
                 }
-                echo "<div  class='hash'>
+                echo "<div  class='hash information-block'>
                     <div class='header'>Hash blocco precedente</div>
-                    <div>".$blocco["hashPrecedente"]."</div>
+                    <div class='content'>".$blocco["hashPrecedente"]."</div>
                 </div>";
                 echo "</div>";
             }

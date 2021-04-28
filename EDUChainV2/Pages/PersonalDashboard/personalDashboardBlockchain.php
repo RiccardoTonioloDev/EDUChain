@@ -71,12 +71,23 @@
             </div>
         </div>
     </div>
+    <div class="status-card">
+        <div class="upper-status-part">
+            <div class="header-status-card">Blockchain status:</div>
+            <?php printStatusBlockchain() ?>
+        </div>
+        <div class="lower-status-part">
+            <div class="lower-header">Corrupted block:</div>
+            <div class="corrupted-block-number">#2</div>
+        </div>
+    </div>
+    <div class="headerPage">Blockchain scanner</div>
     <div class="blockchain-part">
         <?php
             if(verifyBlockchain()){
                 printBlockchain();
             }else{
-                echo "Non valida";
+                echo "<div class='disclaimer'>Blockchain ancora non inizializzata</div>";
             }
         ?>
     </div>
