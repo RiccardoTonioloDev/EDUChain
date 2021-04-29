@@ -71,19 +71,32 @@
             </div>
         </div>
     </div>
-    <div class="status-card">
-        <div class="upper-status-part">
-            <div class="header-status-card">Blockchain status:</div>
-            <?php printStatusBlockchain() ?>
+    <div class="ecosystem">
+        <div class="line1">
+            <div class="status-card">
+                <div class="upper-status-part">
+                    <div class="header-status-card">Blockchain status:</div>
+                    <?php printStatusBlockchain() ?>
+                </div>
+                <div class="lower-status-part">
+                    <?php 
+                        if(isset($_SESSION["CorruptedBlock"])){
+                            echo "<div class='lower-header'>First corrupted block:</div>
+                                    <div class='corrupted-block-number'>#".min($_SESSION["corruptedBlock"])."</div>";
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="numberblocks">
+                <div class="header-number">Numero di blocchi:</div>
+                <div class="actualNumber"><?php echo countTotBlocks() ?></div>
+            </div>
         </div>
-        <div class="lower-status-part">
-            <?php 
-                if(!isset($_SESSION["CorruptedBlock"])){
-                }else{
-                    echo "<div class='lower-header'>First corrupted block:</div>
-                            <div class='corrupted-block-number'>#".$_SESSION["CorruptedBlock"]."</div>";
-                }
-            ?>
+        <div class="line2">
+            <div class="numbertransactions">
+                <div class="header-number">Numero di transazioni:</div>
+                <div class="actualNumber"><?php echo countTotTransactions() ?></div>
+            </div>
         </div>
     </div>
     <div class="headerPage">Blockchain scanner</div>

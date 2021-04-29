@@ -87,6 +87,28 @@
     color:rgb(0, 0, 0);
 }
 
+.ecosystem{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+.line1{
+    margin-top: 20px;
+}
+
+.line2{
+    margin-top: 10px;
+}
+
+.line1, .line2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+}
+
 .status-card{
     display: flex;
     align-items: center;
@@ -97,7 +119,6 @@
     padding:10px;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, .7);
-    margin-top: 20px;
 }
 
 .status-dot{
@@ -136,4 +157,42 @@
 
 .corrupted-block-number{
     margin-left: 5px;
+}
+
+.numberblocks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+    width: auto;
+    height:auto;
+    padding:12px 10px 12px 10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .7);
+    margin-left: 10px;
+}
+
+.actualNumber{
+    margin-left: 5px;
+}
+
+.numbertransactions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
+    width: auto;
+    height:auto;
+    padding:12px 10px 12px 10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .7);
+}
+
+@media screen and (max-width:600px){
+    .line1{
+        flex-flow: column;
+    }
+    .numberblocks{
+        margin-top: 10px;
+    }
 }

@@ -1,12 +1,6 @@
 <?php
-
-if($_SERVER["PHP_SELF"]=='/EDUChain/EDUChainV2/Pages/PersonalDashboard/personalDashboardBlockchain.php'){
-    set_include_path(".." . PATH_SEPARATOR . get_include_path() . PATH_SEPARATOR . 'phpseclib');
-    include("phpseclib/Crypt/RSA.php");
-}else{
     set_include_path(get_include_path() . PATH_SEPARATOR . 'phpseclib');
     include("phpseclib/Crypt/RSA.php");
-}
 
 
 
@@ -383,7 +377,7 @@ function showTransaction(){
                         }
                     }
                     if(verifyTransaction($blocco["Transazioni"][$i])){
-                        $_SESSION["CorruptedBlock"] = $numBlocco;
+                        $_SESSION["corruptedBlock"][][] = $numBlocco;
                     }
                 }
             }
@@ -453,51 +447,21 @@ function verifyBlockchain(){
 
             foreach ($blockchainArray as $numBlocco => $blocco) {
                 if($counter===0){
-                }else{
-                    if($blocco["hashPrecedente"]!==hash("sha256",serialize($blockchainArray[$counter-1]))){
-                        $isNotCorrupted = false;
-                        $_SESSION["CorruptedBlock"] = $counter;
-                    }
-                    /*foreach ($blocco["Transazioni"] as $index => $transazione) {
-                        if(verifyTransaction($transazione)){
+                    foreach ($blocco["Transazioni"] as $index => $transazione) {
+                        if(!verifyTransaction($transazione)){
+                            $_SESSION["corruptedBlock"][] = $counter+1;
                             $isNotCorrupted = false;
-                            $_SESSION["CorruptedBlock"] = $counter;
                         }
-                    }*/
-                }
-                $counter++;
-            }
-        }else{
-            $isNotCorrupted = true;
-        }
-    }else{
-        $isNotCorrupted = true;
-    }
-    if($isNotCorrupted and isset($_SESSION["CorruptedBlock"])){
-        unset($_SESSION["CorruptedBlock"]);
-    }
-    return $isNotCorrupted;
-}
-
-function verifyValidityBlockchain(){
-    $isNotCorrupted = true;
-    if(file_exists("blockchain.json")){
-        if(filesize("blockchain.json")){
-            $blockchainArray = file_get_contents("blockchain.json");
-            $blockchainArray = json_decode($blockchainArray,TRUE);
-            $counter=0;
-
-            foreach ($blockchainArray as $numBlocco => $blocco) {
-                if($counter===0){
+                    }
                 }else{
                     if($blocco["hashPrecedente"]!==hash("sha256",serialize($blockchainArray[$counter-1]))){
                         $isNotCorrupted = false;
-                        $_SESSION["CorruptedBlock"] = $counter;
+                        $_SESSION["corruptedBlock"][] = $counter;
                     }
                     foreach ($blocco["Transazioni"] as $index => $transazione) {
-                        if(verifyTransaction($transazione)){
+                        if(!verifyTransaction($transazione)){
+                            $_SESSION["corruptedBlock"][] = $counter+1;
                             $isNotCorrupted = false;
-                            $_SESSION["CorruptedBlock"] = $counter;
                         }
                     }
                 }
@@ -509,9 +473,10 @@ function verifyValidityBlockchain(){
     }else{
         $isNotCorrupted = true;
     }
-    if($isNotCorrupted and isset($_SESSION["CorruptedBlock"])){
-        unset($_SESSION["CorruptedBlock"]);
+    if($isNotCorrupted and isset($_SESSION["corruptedBlock"])){
+        unset($_SESSION["corruptedBlock"]);
     }
+    return $isNotCorrupted;
 }
 
 function printStatusBlockchain(){
@@ -521,6 +486,36 @@ function printStatusBlockchain(){
     }else{
         echo "<div class='status'>Corrupted</div>
                 <div class='status-dot status-corrupted'></div>";
+    }
+}
+
+function countTotBlocks(){
+    if(!file_exists("blockchain.json")){
+        $blockchain = fopen("blockchain.json","c+");
+        fclose($blockchain);
+        return 0;
+    }else{
+        $total=0;
+        $blockchainArray = file_get_contents("../blockchain.json");
+        $blockchainArray = json_decode($blockchainArray,TRUE);
+        $total = count($blockchainArray);
+        return $total;
+    }
+}
+
+function countTotTransactions(){
+    if(!file_exists("blockchain.json")){
+        $blockchain = fopen("blockchain.json","c+");
+        fclose($blockchain);
+        return 0;
+    }else{
+        $total=0;
+        $blockchainArray = file_get_contents("../blockchain.json");
+        $blockchainArray = json_decode($blockchainArray,TRUE);
+        $lastTransactions = count(end($blockchainArray)["Transazioni"]);
+        $beforeTransactions = (count($blockchainArray)-1)*3;
+        $total = $lastTransactions+$beforeTransactions;
+        return $total;
     }
 }
 
@@ -552,7 +547,7 @@ function printBlockchain(){
             $file = file_get_contents("../blockchain.json");
             $blockchainArray = json_decode($file,TRUE);
             foreach ($blockchainArray as $numBlocco => $blocco) {
-                if(isset($_SESSION["CorruptedBlock"]) and $numBlocco==($_SESSION["CorruptedBlock"]-1)){
+                if(isset($_SESSION["corruptedBlock"]) and in_array(($numBlocco+1),$_SESSION["corruptedBlock"])){
                     echo "<div class='blocco status-corrupted' id='blocco".($numBlocco+1)."'>";
                 }else{
                     echo "<div class='blocco' id='blocco".($numBlocco+1)."'>";
