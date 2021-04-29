@@ -77,14 +77,19 @@
             <?php printStatusBlockchain() ?>
         </div>
         <div class="lower-status-part">
-            <div class="lower-header">Corrupted block:</div>
-            <div class="corrupted-block-number">#2</div>
+            <?php 
+                if(!isset($_SESSION["CorruptedBlock"])){
+                }else{
+                    echo "<div class='lower-header'>First corrupted block:</div>
+                            <div class='corrupted-block-number'>#".$_SESSION["CorruptedBlock"]."</div>";
+                }
+            ?>
         </div>
     </div>
     <div class="headerPage">Blockchain scanner</div>
     <div class="blockchain-part">
         <?php
-            if(verifyBlockchain()){
+            if(verifyFileFromOutside()){
                 printBlockchain();
             }else{
                 echo "<div class='disclaimer'>Blockchain ancora non inizializzata</div>";
