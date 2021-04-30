@@ -79,7 +79,7 @@
             {
                 "Mittente": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAO1P\/+CeqJ9gDCDZ\/dOvKoaTdZqV5HZb\r\nYcZMM825qV7gftExNoQfMEKLrD93ud9rY1pDjVqmtBvkT\/Im3rzbJtkCAwEAAQ==\r\n-----END PUBLIC KEY--",
                 "Destinatario": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
-                "Importo": "41",
+                "Importo": "40",
                 "Timestamp": 1619771504,
                 "Hash firmato": "\t\u00fdn\u0086G\u00c5!Td8?\u008b\u00d2t^4\u00a7\u00ce\u0085\u00ef\u00afw\u00ac\u001eXN^\u00a9'\u00a13\u000f\u008c\u00d2\u00fe\u009fy\u00ef\u00fc\u00c2\u008cF\u00e6A\u00b8\u00d4\u00fa\u00db\u001e\u00f8t\u00cd\u0006\u00efK\f\u001c\u0086y\u00052\u00e2\f\u00de\u00c7 \u00b7\u00a4hUyK\u00e5Tq\u00f2\u00cdZ|\u00c9{\u009dH%p\u0098\u00c7*\u00c5\u00896\u0096Z?\u00d4\u008b\u00a6V\u000e#;\u008b\u00db\u00fd\u00b1\u0017\u00fb\u00bd\u00c4\u00f4\u0099\u00a5\u009e_\u0007\u00d1\u00e2\u00ca:\u00b0\u0098NrC!YU~"
             }

@@ -1,7 +1,6 @@
 <?php
     include("../funzioni.php");
     startPersonalDashboard();
-    print_r($_SESSION["corruptedBlock"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">

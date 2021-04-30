@@ -159,6 +159,10 @@
     margin-left: 5px;
 }
 
+.corruptedtransaction{
+    background-color: orange;
+}
+
 .numberblocks{
     display: flex;
     align-items: center;

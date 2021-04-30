@@ -552,7 +552,11 @@ function printBlockchain(){
                 }
                 echo "<div class='block-title'>Blocco #".($numBlocco+1)."</div>";
                 foreach ($blocco["Transazioni"] as $numeroTransazione => $transazione) {
-                    echo "<div class='transazione' id='transazione".($numeroTransazione+1)."'>";
+                    if(verifyTransaction($transazione)){
+                        echo "<div class='transazione' id='transazione".($numeroTransazione+1)."'>";
+                    }else{
+                        echo "<div class='transazione corruptedtransaction' id='transazione".($numeroTransazione+1)."'>";
+                    }
                         echo "<div class='transaction-title'>Transazione #".($numeroTransazione+1)."</div>";
                         echo "<div class='mittente information'>
                                 <div class='header'>Mittente:</div><div class='content'>".str_replace(array("-----END PUBLIC KEY--","-----BEGIN PUBLIC KEY-----","\r","\n"),"",$transazione["Mittente"])."</div>
