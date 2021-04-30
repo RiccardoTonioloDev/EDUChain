@@ -488,32 +488,36 @@ function printStatusBlockchain(){
 }
 
 function countTotBlocks(){
-    if(!file_exists("blockchain.json")){
-        $blockchain = fopen("blockchain.json","c+");
-        fclose($blockchain);
+    if(!verifyFileFromOutside()){
         return 0;
     }else{
         $total=0;
         $blockchainArray = file_get_contents("../blockchain.json");
         $blockchainArray = json_decode($blockchainArray,TRUE);
-        $total = count($blockchainArray);
-        return $total;
+        if(0==filesize("../blockchain.json")){
+            return 0;
+        }else{
+            $total = count($blockchainArray);
+            return $total;
+        }
     }
 }
 
 function countTotTransactions(){
-    if(!file_exists("blockchain.json")){
-        $blockchain = fopen("blockchain.json","c+");
-        fclose($blockchain);
+    if(!verifyFileFromOutside()){
         return 0;
     }else{
         $total=0;
         $blockchainArray = file_get_contents("../blockchain.json");
         $blockchainArray = json_decode($blockchainArray,TRUE);
-        $lastTransactions = count(end($blockchainArray)["Transazioni"]);
-        $beforeTransactions = (count($blockchainArray)-1)*3;
-        $total = $lastTransactions+$beforeTransactions;
-        return $total;
+        if(0==filesize("../blockchain.json")){
+            return 0;
+        }else{
+            $lastTransactions = count(end($blockchainArray)["Transazioni"]);
+            $beforeTransactions = (count($blockchainArray)-1)*3;
+            $total = $lastTransactions+$beforeTransactions;
+            return $total;
+        }
     }
 }
 
