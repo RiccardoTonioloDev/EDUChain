@@ -438,6 +438,7 @@ function createNewBlock(){
 }
 
 function verifyBlockchain(){
+    unset($_SESSION["corruptedBlock"]);
     $isNotCorrupted = true;
     if(file_exists("../blockchain.json")){
         if(filesize("../blockchain.json")){
@@ -472,9 +473,6 @@ function verifyBlockchain(){
         }
     }else{
         $isNotCorrupted = true;
-    }
-    if($isNotCorrupted and isset($_SESSION["corruptedBlock"])){
-        unset($_SESSION["corruptedBlock"]);
     }
     return $isNotCorrupted;
 }

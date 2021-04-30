@@ -1,6 +1,7 @@
 <?php
     include("../funzioni.php");
     startPersonalDashboard();
+    print_r($_SESSION["corruptedBlock"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +81,7 @@
                 </div>
                 <div class="lower-status-part">
                     <?php 
-                        if(isset($_SESSION["CorruptedBlock"])){
+                        if(isset($_SESSION["corruptedBlock"])){
                             echo "<div class='lower-header'>First corrupted block:</div>
                                     <div class='corrupted-block-number'>#".min($_SESSION["corruptedBlock"])."</div>";
                         }
