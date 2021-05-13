@@ -1,1 +1,39 @@
-[{"Transazioni":[{"Mittente":"NETWORK","Destinatario":"-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANhyQLEf9KcToTi+VEB4Q+SfD1Ifrlu0\r\nvuEzk7jRE\/4DM4tgHbayXBt8dCym5MiNRWf3bF3fpAka+RDu7Qt76XMCAwEAAQ==\r\n-----END PUBLIC KEY--","Importo":"100","Timestamp":1619798344},{"Mittente":"-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANhyQLEf9KcToTi+VEB4Q+SfD1Ifrlu0\r\nvuEzk7jRE\/4DM4tgHbayXBt8dCym5MiNRWf3bF3fpAka+RDu7Qt76XMCAwEAAQ==\r\n-----END PUBLIC KEY--","Destinatario":"-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--","Importo":"10","Timestamp":1619798460,"Hash firmato":"45vY\u009d\u0084q\u00f2\u0087H\u0019\u0083\u00bd>\u00a0Tuh&f\u00f6\u0086\u00fe\u00a4\u00ac\u00bco\u00baH\u00f9\u00ca>\u00ca\\O\u0094\u0086 \u00936\u00f8\u00f4\u00cbg\u00b0\u00f6O\u00cc\u00a8\u00afn\u0086\u0088\u00d37;\u00a6F\u008a\u00d5\u00c8`H`o\u00d6\u009d\u00dax\u001flyi\u0003\u00be\u0002\u0086]F\u00c8\u00bb&\u00a4u.\u00f3\u00c4\u00b6C\u00f0\u00a7\u00e3Qaj5\u0005\fML\u0080\u00b0\n\u00c6\u0017\u00b4\u001b~\u0088\\\u00e2\u00e7e\u00c2\u00a6\u00eca2\u00b1a\u00038-\u001b\u0018\u00a8"},{"Mittente":"-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANhyQLEf9KcToTi+VEB4Q+SfD1Ifrlu0\r\nvuEzk7jRE\/4DM4tgHbayXBt8dCym5MiNRWf3bF3fpAka+RDu7Qt76XMCAwEAAQ==\r\n-----END PUBLIC KEY--","Destinatario":"-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--","Importo":"10","Timestamp":1619799073,"Hash firmato":"L)\u00b2\u00ab\u00e3^\u00ea\u00ca\u00a8{\u0090<O\u00d5w\u00b7Y\u00e1 \u00ac\u00f0 L\u00d2\n\/\u0013\u00b1k\u00e4\u00edR@\u00b6\u00f2\u00ca\u009b7\u00dd\u00c5G\u00efId\u00f2\u00d3\"\u00ecn\u0099\u00e3*4\u0099\u00fe@Y\u00c2\t\u00ea\u00a5}\\\u00bb\u00a2\n\u008em\u00b4\u0099\u00c2\u00b4!#\u00dap\u0014\u00ed\u00b62\u00fe\u00879\u00977\u00ae\u0014D\u00af@+F\u009b\u0080E#\u00e8\u0090\u00d1}y\u00b6\u00ad\u009c\u00b24\u00b3\u00cd6\u00ff6\u00e3\u00e8\u00b8\u009a\u0017\u009f\u00c1\u0085Y\u00fc\u00ee\u00f6,\u00a3\u00a4\u00ff"}],"hashPrecedente":0}]
+[
+    {
+        "Transazioni": [
+            {
+                "Mittente": "NETWORK",
+                "Destinatario": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Importo": "20",
+                "Timestamp": 1620897544
+            },
+            {
+                "Mittente": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Destinatario": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAM0wpnayZTq4Fl+sJF\/sZNDgOHZTHr\/D\r\nbf0AseWC49zGvDiuAV1CnuuxAUgwoWniJ\/BvxCe+gX1XnkagJiNUQiUCAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Importo": "2",
+                "Timestamp": 1620897592,
+                "Hash firmato": "#?\u00f4)\u00a7\u00c1\u00eaJ\u00ecmz\u00c9\u001f\t\u00fayE\u0015 f\u008d\u00e7zvk\u00eae\u00ea&\u0087\u008a\u0000\u00be6\u00bc\u00f0e@5v\u00991\u008ae\u00f9\u00ea\u00e1\u00ed\u00e3-\u00c0\u001fD\u0014,\u00d6\u00b9\u0087\u00d4\u00a9\u00e2~\u001b\u00aa\u0080\u0016\u0094C3\u00c2#![u\u0096\u00e0c\u00e9\u00e7\u00c6',\u001a\u00ac\u00da1\u00a9\u009b\u00db\u00ea\u00d5y\u0092VORD\u00a9\u00dd3`\u0089\u001c\u00b5\u00c2\u0098cM\u00e0\u0099i\u0095[\u00e1K6x\u00da\u0097\u00d6\u0090L\u00e5h<\u00b1\u00a5"
+            },
+            {
+                "Mittente": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Destinatario": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANhyQLEf9KcToTi+VEB4Q+SfD1Ifrlu0\r\nvuEzk7jRE\/4DM4tgHbayXBt8dCym5MiNRWf3bF3fpAka+RDu7Qt76XMCAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Importo": "3",
+                "Timestamp": 1620897607,
+                "Hash firmato": "2\u00b3\u00fe\u00d8v\u0000\u00cbg=\u00f5\u0018|\u00dbe\u0091\u0090;\u00f8\u00d6\u00deM\u0000\u00b5-&\u00e1O\u0018\u0085\u0091\bc\u00d0\u0004X\u009c\u0090?k\u00cc\u00de\u0003\u00e7\u00fa\u00fd\u0080\u0092TA\u00e2\u00d0\u0000\u0012m\u00e5\u00a3\u0000\u0005\u0094m\u00b5s\/\u00f6\u0096\u00a6?\u00af\u00c0\u00f4\u0015l5_\u0094f\u00e4\u00ba\u0016*}\u0013\u0086\u00c8{\u0081$S\u00a8\u00ad[\u00cf\u00be\u00bbP^nDt\u00a4\u0089\/P\u0012\u00dbd?\u00c7\u0012\u00a3\u00bf\fN\u0000W\u00b6c4|\u00b4\u00ac\u0084\u00ac2\u0090)\u0092\u00a1"
+            }
+        ],
+        "hashPrecedente": 0
+    },
+    {
+        "Transazioni": [
+            {
+                "Mittente": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Destinatario": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAM0wpnayZTq4Fl+sJF\/sZNDgOHZTHr\/D\r\nbf0AseWC49zGvDiuAV1CnuuxAUgwoWniJ\/BvxCe+gX1XnkagJiNUQiUCAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Importo": "8",
+                "Timestamp": 1620897617,
+                "Hash firmato": "F\u00a38B\u00d5#\u00075NZB:e\u00b2\u0084\u009c=[\u0016,uD\u00bf\u00ba\u00c3+\u0013k\u00e5\u008e&\u00bf\u00a3\u00d9{\u00e4=\u00a0\u001c0\u00e5\u00f3-\u00db\u0091\u00b2\u00af\u00b7u\b_-w\u009a7\u0083^\u009a\u0093\u00cdH\u009f s\u00db\u008f\u008d\u0012s\u00fdt\u00bd\u0099C\u00c9Q\u0092\u0087\u001f\u00ebYpMxK_\u00f5[s\u0090b\u00cd\u00beM\u00ae\u00e9\u0094\u00c3\u00a8+\u0016\u00ce\u00bf\u00df;\u00d2\u00c8 \u00c2\u00c6aK\u000f}'\"\fT\u0086T>\u00e4qc\u00db\u00bf\u0000"
+            }
+        ],
+        "hashPrecedente": "6df398344e284e2b908e6af13b5e4d0d2f07d81a82b5e41931418272a8f7f508"
+    }
+]

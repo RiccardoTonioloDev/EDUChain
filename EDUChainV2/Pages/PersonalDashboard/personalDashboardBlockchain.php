@@ -1,5 +1,5 @@
 <?php
-    include("..".DIRECTORY_SEPARATOR."funzioni.php");
+    include("../funzioni.php");
     startPersonalDashboard();
 ?>
 <!DOCTYPE html>
