@@ -4,11 +4,13 @@
     overflow-y: scroll;
     overflow-x:hidden;
     margin-top: 30px;
+    margin-bottom: 30px;
     background: #edc0bf;
     background: linear-gradient(90deg, #c4caef 0,#edc0bf 58%);
     padding:20px;
     padding-right: 40px;
     border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .blocco{
@@ -119,6 +121,7 @@
     padding:10px;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, .7);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .status-dot{
@@ -174,6 +177,7 @@
     border-radius: 15px;
     background-color: rgba(255, 255, 255, .7);
     margin-left: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .actualNumber{
@@ -190,6 +194,7 @@
     padding:12px 10px 12px 10px;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, .7);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 @media screen and (max-width:600px){
