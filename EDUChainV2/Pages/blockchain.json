@@ -32,6 +32,13 @@
                 "Importo": "8",
                 "Timestamp": 1620897617,
                 "Hash firmato": "F\u00a38B\u00d5#\u00075NZB:e\u00b2\u0084\u009c=[\u0016,uD\u00bf\u00ba\u00c3+\u0013k\u00e5\u008e&\u00bf\u00a3\u00d9{\u00e4=\u00a0\u001c0\u00e5\u00f3-\u00db\u0091\u00b2\u00af\u00b7u\b_-w\u009a7\u0083^\u009a\u0093\u00cdH\u009f s\u00db\u008f\u008d\u0012s\u00fdt\u00bd\u0099C\u00c9Q\u0092\u0087\u001f\u00ebYpMxK_\u00f5[s\u0090b\u00cd\u00beM\u00ae\u00e9\u0094\u00c3\u00a8+\u0016\u00ce\u00bf\u00df;\u00d2\u00c8 \u00c2\u00c6aK\u000f}'\"\fT\u0086T>\u00e4qc\u00db\u00bf\u0000"
+            },
+            {
+                "Mittente": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL0arleOVogT6dXFpw8hcXM0sznd5mKE\r\nagBOO50hiudzZ9bhVdotfernw+3klaVm8D9GeW6kyqI9Ov0px9sBu60CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Destinatario": "-----BEGIN PUBLIC KEY-----\r\nMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKffHvizr5pS60TOsvUyweadykXJ1OlC\r\nI\/Vo1zCVLOr45EefU\/+MUK98Vv+C+CONeXV1G8GVgW7oZK9tPKfz4p8CAwEAAQ==\r\n-----END PUBLIC KEY--",
+                "Importo": "4",
+                "Timestamp": 1621250266,
+                "Hash firmato": "B\u0088\u0002$\u00c1\u00ccBa\u00b5\u00ca$sG\r\u00b2\u0091\u00dd\u00e0\u00bf\u009f\u0097\u00e9\u00c6\u00e6cL\u00b0\u00c4$\u00a6z\u00bb\u000b\u00a6\u00b7\u00fd\u00ec\u0000\u009b]\u0099\u00ef\u00d4C\u00e1\u00dcBAWAI\u0005\u0099:\u00c3~3\u000e\u0097\u009cE\nS\u00d5\u0083\u00a8W\u00a6\u0093\u0011\u00efd\u009d\u0086\u00b3\u0099\u000b\u009a\u00c3\u00cd\u00ad\u0099\u00f1?\u0092\u00f1\u008b\u0013 \u000f\u00c9\u00cc\u00b7[=ht{\u00ed\u00e7\u00c9\u00adeN\u00ef\u00e3\u00e2{\u0083\u001f\u0000\u00b2\u00a7\u00e0\u00a6\u009c\u00c6\u000e\u009d\u0091\u00d1u\/X\u0087q"
             }
         ],
         "hashPrecedente": "6df398344e284e2b908e6af13b5e4d0d2f07d81a82b5e41931418272a8f7f508"
