@@ -5,7 +5,7 @@
 
 
 function findUser($IdUtente,$Password){
-    $conn = new mysqli($_ENV["HOST"] . $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
+    $conn = new mysqli($_ENV["HOST"] .':'. $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
@@ -29,7 +29,7 @@ function findUser($IdUtente,$Password){
 }
 
 function userComboBox(){
-    $conn = new mysqli($_ENV["HOST"] . $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
+    $conn = new mysqli($_ENV["HOST"] .':'. $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"../errorHandling.php");
@@ -50,7 +50,7 @@ function userComboBox(){
 }
 
 function pubkeyUsernameGiven($username){
-    $conn = new mysqli($_ENV["HOST"] . $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
+    $conn = new mysqli($_ENV["HOST"] .':'. $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"../errorHandling.php");
@@ -126,7 +126,7 @@ function createNewKeyPair(){
 }
 
 function addNewUser($IdUtente,$Password){
-    $conn = new mysqli($_ENV["HOST"] . $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
+    $conn = new mysqli($_ENV["HOST"] .':'. $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
@@ -163,7 +163,7 @@ function secureString($conn,$dataString){
 }
 
 function mysqliConnectorCreator(){
-    $conn = new mysqli($_ENV["HOST"] . $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
+    $conn = new mysqli($_ENV["HOST"] .':'. $_ENV["PORT"],$_ENV["USERNAME"],$_ENV["PASSWORD"]);
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
