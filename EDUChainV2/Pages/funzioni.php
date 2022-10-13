@@ -10,7 +10,7 @@ function findUser($IdUtente,$Password){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
     }
-    if(!$conn->select_db("ritchain")){
+    if(!$conn->select_db("railway")){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
     }
@@ -34,7 +34,7 @@ function userComboBox(){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"../errorHandling.php");
     }
-    if(!$conn->select_db("ritchain")){
+    if(!$conn->select_db("railway")){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"../errorHandling.php");
     }
@@ -54,7 +54,7 @@ function pubkeyUsernameGiven($username){
     if($conn->connect_error){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"../errorHandling.php");
-    }if(!$conn->select_db("ritchain")){
+    }if(!$conn->select_db("railway")){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"../errorHandling.php");
     }
@@ -131,7 +131,7 @@ function addNewUser($IdUtente,$Password){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
     }
-    if(!$conn->select_db("ritchain")){
+    if(!$conn->select_db("railway")){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
     }
@@ -168,7 +168,7 @@ function mysqliConnectorCreator(){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
     }
-    if(!$conn->select_db("ritchain")){
+    if(!$conn->select_db("railway")){
         //Problemi con l'host del database o con il database stesso
         errorHandlingSorter(4,"errorHandling.php");
     }
